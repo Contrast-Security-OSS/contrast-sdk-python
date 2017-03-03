@@ -1,5 +1,4 @@
 from util import Util
-from applications_api import _ApplicationApi
 from organization_api import _OrganizationApi
 
 class ContrastSdk(object):
@@ -29,13 +28,8 @@ class ContrastSdk(object):
                 }
 
     def _setup_apis(self):
-        self._configure_application_api()
         self._configure_organization_api()
 
-    def _configure_application_api(self):
-        self._applications = _ApplicationApi()
-        self._configure_api_defaults(self._applications)
-        self.get_applications = self._applications.get_applications
 
     def _configure_organization_api(self):
         self._organization = _OrganizationApi()
