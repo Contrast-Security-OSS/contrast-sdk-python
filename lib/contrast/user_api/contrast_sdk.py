@@ -4,7 +4,7 @@ from applications_api import _ApplicationApi
 
 
 class ContrastSdk(object):
-    def_delegator('_applications', 'get_applications')
+    def_delegator('_applications', _ApplicationApi.get_applications())
 
     def __init__(self, username, api_key, service_key, teamserver_url='https://app.contrastsecurity.com/Contrast'):
         self._username = username
