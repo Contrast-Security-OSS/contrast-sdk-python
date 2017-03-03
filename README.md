@@ -12,6 +12,7 @@ Use pip to install the projects dependencies
 ```
 
 To run the tests
+edit tests/config.json with local teamserver information
 ```commandline
     nosetests
 ```
