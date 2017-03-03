@@ -15,10 +15,10 @@ class _ApiSupport(object):
         return requests.get(self.build_url(path), params=params, headers=self._headers)
 
     def _post(self, path, data=None):
-        return requests.post(self.build_url(path), data=data, headers=self._headers)
+        return requests.post(self.build_url(path), json=data, headers=self._headers)
 
     def _put(self, path, data=None):
-        return requests.put(self.build_url(path), data=data, headers=self._headers)
+        return requests.put(self.build_url(path), json=data, headers=self._headers)
 
     def _delete(self, path, params=None):
         return requests.delete(self.build_url(path), params=params, headers=self._headers)
