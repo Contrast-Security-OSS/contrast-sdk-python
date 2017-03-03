@@ -1,8 +1,10 @@
 from util import Util
+from forwardable import def_delegator, def_delegators
 from applications_api import _ApplicationApi
 
 
-class ContrastSdk:
+class ContrastSdk(object):
+    def_delegator('_applications', 'get_applications')
 
     def __init__(self, username, api_key, service_key, teamserver_url='https://app.contrastsecurity.com/Contrast'):
         self._username = username
@@ -10,15 +12,11 @@ class ContrastSdk:
         self._service_key = service_key
         self._teamserver_url = teamserver_url
 
-        self._configure_apis()
+        self._applications = _ApplicationApi()
+        self._configure_api_defaults(self._applications)
 
         if not Util.validate_url(self._teamserver_url):
             raise ValueError('Invalid Url')
-
-    def _configure_apis(self):
-        self._applications = _ApplicationApi()
-        self._configure_api_defaults(self._applications)
-        self.get_applications = self._applications.get_applications
 
     def _configure_api_defaults(self, api_class):
         api_class._headers = self._create_headers()
@@ -30,3 +28,6 @@ class ContrastSdk:
                     'API-Key': self._api_key
                 }
 
+    def _configure_application_api(self):
+        self._applications = _ApplicationApi()
+        self._configure_api_defaults(self._applications)
