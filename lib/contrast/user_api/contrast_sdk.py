@@ -41,7 +41,7 @@ class ContrastSdk(object):
         self.get_org_info = self._profile.get_org_info
         self.get_profile_password_policy = self._profile.get_profile_password_policy
         self.get_profile_roles = self._profile.get_profile_roles
-
+        self.set_profile_default_org = self._profile.set_profile_default_org
 
     def _configure_organization_api(self):
         self._organization = _OrganizationApi()
