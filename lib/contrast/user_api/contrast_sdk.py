@@ -1,5 +1,6 @@
 from util import Util
 from organization_api import _OrganizationApi
+from events_api import _EventsApi
 
 class ContrastSdk(object):
 
@@ -29,6 +30,15 @@ class ContrastSdk(object):
 
     def _setup_apis(self):
         self._configure_organization_api()
+        self._configure_events_api()
+
+    def _configure_events_api(self):
+        self._events = _EventsApi()
+        self._configure_api_defaults(self._events)
+        self.get_latest_events = self._events.get_latest_events
+        self.get_latest_application_creation = self._events.get_latest_application_creation
+        self.get_latest_server_creation = self._events.get_latest_server_creation
+        self.get_latest_traces_received = self._events.get_latest_traces_received
 
 
     def _configure_organization_api(self):
