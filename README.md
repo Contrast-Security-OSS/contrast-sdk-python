@@ -1,29 +1,18 @@
-# README #
+## Contrast Python Sdk
 
-This README would normally document whatever steps are necessary to get your application up and running.
+## Usage
+The endpoints available through this module are available through a ContrastSdk object.
+contrast_sdk = ContrastSdk('username', 'api_key', 'service_key', 'teamserver_url')
 
-### What is this repository for? ###
+contrast_sdk.applications_api.get_applications()
+### Developing
+Use pip to install the projects dependencies
+```commandline
+    pip install -r requirements.txt
+```
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+To run the tests
+edit tests/config.json with local teamserver information
+```commandline
+    nosetests
+```
