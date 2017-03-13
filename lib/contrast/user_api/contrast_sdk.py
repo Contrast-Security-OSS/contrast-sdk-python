@@ -1,5 +1,6 @@
 from util import Util
 from organization_api import _OrganizationApi
+from library_api import _LibraryApi
 
 class ContrastSdk(object):
 
@@ -29,7 +30,19 @@ class ContrastSdk(object):
 
     def _setup_apis(self):
         self._configure_organization_api()
+        self._configure_library_api()
 
+    def _configure_library_api(self):
+        self._library = _LibraryApi()
+        self._configure_api_defaults(self._library)
+        self.get_libraries = self._library.get_libraries
+        self.get_dotnet_library = self._library.get_dotnet_library
+        self.get_java_library = self._library.get_java_library
+        self.get_library_stats = self._library.get_library_stats
+        self.get_library_filter_subfilters = self._library.get_library_filter_subfilters
+        self.filter_libraries = self._library.filter_libraries
+        self.get_all_library_filters = self._library.get_all_library_filters
+        self.get_library_policy = self._library.get_library_policy
 
     def _configure_organization_api(self):
         self._organization = _OrganizationApi()
