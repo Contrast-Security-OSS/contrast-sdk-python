@@ -1,5 +1,6 @@
 from util import Util
 from organization_api import _OrganizationApi
+from history_api import _HistoryApi
 
 class ContrastSdk(object):
 
@@ -29,7 +30,13 @@ class ContrastSdk(object):
 
     def _setup_apis(self):
         self._configure_organization_api()
+        self._configure_history_api()
 
+    def _configure_history_api(self):
+        self._history = _HistoryApi
+        self._configure_api_defaults(self._history)
+        self.get_organization_score_history = self._history.get_organization_score_history
+        self.get_organization_score_history_interval = self._history.get_organization_score_history_interval
 
     def _configure_organization_api(self):
         self._organization = _OrganizationApi()
