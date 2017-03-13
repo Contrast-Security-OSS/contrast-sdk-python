@@ -3,5 +3,6 @@
   "api_key": "demo",
   "service_key":"demo",
   "teamserver_url": "http://127.0.0.1:19080/Contrast",
-  "org_uuid": "enter_your_org_id"
+  "org_uuid": "org_id",
+  "master_app_id": "app_id_with_child_modules"
 }
