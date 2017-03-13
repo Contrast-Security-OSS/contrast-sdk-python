@@ -1,5 +1,6 @@
 from util import Util
 from organization_api import _OrganizationApi
+from alerts_api import _AlertApi
 
 class ContrastSdk(object):
 
@@ -29,7 +30,13 @@ class ContrastSdk(object):
 
     def _setup_apis(self):
         self._configure_organization_api()
+        self._configure_alert_api()
 
+    def _configure_alert_api(self):
+        self._alert = _AlertApi()
+        self._configure_api_defaults(self._organization)
+        self.get_alerts = self._alert.get_alerts
+        self.get_alert_data = self._alert.get_alert_data
 
     def _configure_organization_api(self):
         self._organization = _OrganizationApi()
