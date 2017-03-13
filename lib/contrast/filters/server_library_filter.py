@@ -18,9 +18,9 @@ class ServerLibraryFilter(object):
 
     def get_params_as_json(self):
         return {
-            'apps': ''.join(self.apps),
-            'tags': ''.join(self.tags),
-            'expand': ''.join(self.expand),
+            'apps': ','.join(self.apps),
+            'tags': ','.join(self.tags),
+            'expand': ','.join(self.expand),
             'q': self.query,
             'quickFilter': self.quick_filter,
         }

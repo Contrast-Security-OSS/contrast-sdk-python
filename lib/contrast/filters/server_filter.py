@@ -23,12 +23,12 @@ class ServerFilter(object):
 
     def get_params_as_json(self):
         return {
-            'applicationIds': ''.join(self.application_ids),
-            'logLevels': ''.join(self.log_levels),
-            'tags': ''.join(self.tags),
-            'agentVersions': ''.join(self.agent_versions),
-            'environments': ''.join(self.environments),
-            'expand': ''.join(self.expand),
+            'applicationIds': ','.join(self.application_ids),
+            'logLevels': ','.join(self.log_levels),
+            'tags': ','.join(self.tags),
+            'agentVersions': ','.join(self.agent_versions),
+            'environments': ','.join(self.environments),
+            'expand': ','.join(self.expand),
             'includeArchived': self.include_archived,
             'query': self.query,
             'quickFilter': self.quick_filter,
