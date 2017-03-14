@@ -30,6 +30,7 @@ class ContrastSdk(object):
 
     def _setup_apis(self):
         self._configure_organization_api()
+        self._configure_tags_api()
 
     def _configure_tags_api(self):
         self._tags = _TagsApi()

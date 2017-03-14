@@ -4,5 +4,10 @@
   "service_key":"demo",
   "teamserver_url": "http://127.0.0.1:19080/Contrast",
   "org_uuid": "de7dd2a9-7643-46fb-b9d8-9c38aeffed7e",
-  "app_id": "e063d882-b30c-4840-a866-5a63b7dafba5"
+  "server_id": "48",
+  "app_id": "e063d882-b30c-4840-a866-5a63b7dafba5",
+  "trace_id": "S81R-DU1P-M6W1-CMNP",
+  "library_hash": "fb0f302a91a376fd5cfe23167c419375e8fc9b8f",
+  "tag_name": "'yee-tag"
+
 }

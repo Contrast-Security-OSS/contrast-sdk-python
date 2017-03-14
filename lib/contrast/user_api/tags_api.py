@@ -43,7 +43,7 @@ class _TagsApi(_ApiSupport):
         return self._get(path)
 
     def get_all_trace_tags_for_servers(self, org_uuid, server_id):
-        path = '{org_uuid}/tags/traces/server/{server_id}'.format(org_uuid, server_id=server_id)
+        path = '{org_uuid}/tags/traces/server/{server_id}'.format(org_uuid=org_uuid, server_id=server_id)
         return self._get(path)
 
     def get_all_tags_for_trace(self, org_uuid, trace_id):
