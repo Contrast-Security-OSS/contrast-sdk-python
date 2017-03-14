@@ -1,6 +1,7 @@
 from util import Util
 from organization_api import _OrganizationApi
 from events_api import _EventsApi
+from profile_api import _ProfileApi
 
 class ContrastSdk(object):
 
@@ -31,6 +32,7 @@ class ContrastSdk(object):
     def _setup_apis(self):
         self._configure_organization_api()
         self._configure_events_api()
+        self._configure_profile_api()
 
     def _configure_events_api(self):
         self._events = _EventsApi()
@@ -40,6 +42,17 @@ class ContrastSdk(object):
         self.get_latest_server_creation = self._events.get_latest_server_creation
         self.get_latest_traces_received = self._events.get_latest_traces_received
 
+
+    def _configure_profile_api(self):
+        self._profile = _ProfileApi()
+        self._configure_api_defaults(self._profile)
+        self.get_profile_info = self._profile.get_profile_info
+        self.get_profile_organizations = self._profile.get_profile_organizations
+        self.get_profile_default_organization = self._profile.get_profile_default_organization
+        self.get_org_info = self._profile.get_org_info
+        self.get_profile_password_policy = self._profile.get_profile_password_policy
+        self.get_profile_roles = self._profile.get_profile_roles
+        self.set_profile_default_org = self._profile.set_profile_default_org
 
     def _configure_organization_api(self):
         self._organization = _OrganizationApi()
