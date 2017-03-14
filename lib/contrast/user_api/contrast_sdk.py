@@ -1,6 +1,7 @@
 from util import Util
 from organization_api import _OrganizationApi
 from profile_api import _ProfileApi
+from trace_api import _TraceApi
 
 class ContrastSdk(object):
 
@@ -31,6 +32,24 @@ class ContrastSdk(object):
     def _setup_apis(self):
         self._configure_organization_api()
         self._configure_profile_api()
+        self._configure_trace_api()
+
+    def _configure_trace_api(self):
+        self._traces = _TraceApi()
+        self._configure_api_defaults(self._traces)
+        self.filter_org_traces = self._traces.filter_org_traces
+        self.get_org_trace = self._traces.get_org_trace
+        self.get_trace_notes = self._traces.get_trace_notes
+        self.create_trace_note = self._traces.create_trace_note
+        self.get_org_trace_ids = self._traces.get_org_trace_ids
+        self.get_org_trace_policy_violations = self._traces.get_org_trace_policy_violations
+        self.get_trace_visibility = self._traces.get_trace_visibility
+        self.get_new_trace_trend = self._traces.get_new_trace_trend
+        self.get_total_trace_trend = self._traces.get_total_trace_trend
+        self.get_trace_time_to_remediate_by_rule = self._traces.get_trace_time_to_remediate_by_rule
+        self.get_trace_time_to_remediate_by_severity = self._traces.get_trace_time_to_remediate_by_severity
+        self.get_trace_time_to_remediate_current = self._traces.get_trace_time_to_remediate_current
+        self.get_trace_time_to_remediate_month_trend = self._traces.get_trace_time_to_remediate_month_trend
 
     def _configure_profile_api(self):
         self._profile = _ProfileApi()
