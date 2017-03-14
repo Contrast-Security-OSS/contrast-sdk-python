@@ -12,7 +12,7 @@ class ServerApiTest(TestCase):
             cls.data = json.load(configuration_data)
         cls.sdk = ContrastSdk(cls.data['username'], cls.data['api_key'], cls.data['service_key'], cls.data['teamserver_url'])
         cls.org_uuid = cls.data['org_uuid']
-        cls.server_id = cls.data['test_server_id']
+        cls.server_id = cls.data['server_id']
 
     def get_servers_test(self):
         self.assertEquals(200, self.sdk.get_servers(self.org_uuid).status_code)
