@@ -1,5 +1,6 @@
 from util import Util
 from organization_api import _OrganizationApi
+from modules_api import _ModulesApi
 from library_api import _LibraryApi
 from scores_api import _ScoresApi
 from history_api import _HistoryApi
@@ -35,12 +36,18 @@ class ContrastSdk(object):
 
     def _setup_apis(self):
         self._configure_organization_api()
+        self._configure_modules_api()
         self._configure_library_api()
         self._configure_scores_api()
         self._configure_history_api()
-        self._configure_profile_api()
         self._configure_roles_api()
         self._configure_profile_api()
+
+    def _configure_modules_api(self):
+        self._modules = _ModulesApi()
+        self._configure_api_defaults(self._modules)
+        self.get_application_modules = self._modules.get_application_modules
+        self.get_application_child_modules = self._modules.get_application_child_modules
 
     def _configure_history_api(self):
         self._history = _HistoryApi
