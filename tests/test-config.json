@@ -4,5 +4,7 @@
   "service_key":"demo",
   "teamserver_url": "http://127.0.0.1:19080/Contrast",
   "org_uuid": "",
-  "server_id": ""
+  "server_id": "",
+  "app_id": "",
+  "java_library_hash": ""
 }
