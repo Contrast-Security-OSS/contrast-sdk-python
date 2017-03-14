@@ -1,5 +1,6 @@
 from util import Util
 from organization_api import _OrganizationApi
+from scores_api import _ScoresApi
 from history_api import _HistoryApi
 from role_api import _RoleApi
 from profile_api import _ProfileApi
@@ -32,6 +33,7 @@ class ContrastSdk(object):
 
     def _setup_apis(self):
         self._configure_organization_api()
+        self._configure_scores_api()
         self._configure_history_api()
         self._configure_profile_api()
         self._configure_roles_api()
@@ -43,11 +45,27 @@ class ContrastSdk(object):
         self.get_organization_score_history = self._history.get_organization_score_history
         self.get_organization_score_history_interval = self._history.get_organization_score_history_interval
 
-
     def _configure_roles_api(self):
         self._roles = _RoleApi()
         self._configure_api_defaults(self._roles)
         self.get_roles = self._roles.get_roles
+
+    def _configure_scores_api(self):
+        self._scores = _ScoresApi()
+        self._configure_api_defaults(self._scores)
+        self.get_overall_scores = self._scores.get_overall_scores
+        self.get_score_category_breakdown = self._scores.get_score_category_breakdown
+        self.get_score_rule_breakdown = self._scores.get_score_rule_breakdown
+        self.get_score_server_breakdown = self._scores.get_score_server_breakdown
+        self.get_score_severity_breakdown = self._scores.get_score_severity_breakdown
+        self.get_score_status_breakdown = self._scores.get_score_status_breakdown
+        self.get_score_trace_rule_breakdown = self._scores.get_score_trace_rule_breakdown
+        self.get_score_trace_severity_breakdown = self._scores.get_score_trace_severity_breakdown
+        self.get_score_trace_status_breakdown = self._scores.get_score_trace_status_breakdown
+        self.get_score_platform = self._scores.get_score_platform
+        self.get_score_platform_include_defense = self._scores.get_score_platform_include_defense
+        self.get_score_security = self._scores.get_score_security
+        self.get_score_security_include_defense = self._scores.get_score_security_include_defense
 
     def _configure_profile_api(self):
         self._profile = _ProfileApi()
