@@ -1,5 +1,6 @@
 from util import Util
 from organization_api import _OrganizationApi
+from tags_api import _TagsApi
 
 class ContrastSdk(object):
 
@@ -30,6 +31,28 @@ class ContrastSdk(object):
     def _setup_apis(self):
         self._configure_organization_api()
 
+    def _configure_tags_api(self):
+        self._tags = _TagsApi()
+        self._configure_api_defaults(self._tags)
+        self.get_application_tags = self._tags.get_application_tags
+        self.get_all_library_tags = self._tags.get_all_library_tags
+        self.get_all_application_tags = self._tags.get_all_application_tags
+        self.get_application_library_tags = self._tags.get_application_library_tags
+        self.get_library_tag_list = self._tags.get_library_tag_list
+        self.get_server_tag_list = self._tags.get_server_tag_list
+        self.get_all_server_tags = self._tags.get_all_server_tags
+        self.get_all_trace_tags = self._tags.get_all_trace_tags
+        self.get_all_trace_tags_for_application = self._tags.get_all_trace_tags_for_application
+        self.get_all_trace_tags_for_servers = self._tags.get_all_trace_tags_for_servers
+        self.get_all_tags_for_trace = self._tags.get_all_tags_for_trace
+        self.tag_application = self._tags.tag_application
+        self.tag_library = self._tags.tag_library
+        self.tag_server = self._tags.tag_server
+        self.tag_trace = self._tags.tag_trace
+        self.delete_tag_from_application = self._tags.delete_tag_from_application
+        self.delete_tag_from_trace = self._tags.delete_tag_from_trace
+        self.delete_tag_from_server = self._tags.delete_tag_from_server
+        self.delete_tag_from_library = self._tags.delete_tag_from_library
 
     def _configure_organization_api(self):
         self._organization = _OrganizationApi()
