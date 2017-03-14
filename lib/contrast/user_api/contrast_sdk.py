@@ -1,10 +1,7 @@
 from util import Util
 from organization_api import _OrganizationApi
-<<<<<<< HEAD
 from modules_api import _ModulesApi
-=======
 from profile_api import _ProfileApi
->>>>>>> 105664a31454e4acc2e69d1b3cfda10e81846d0c
 
 class ContrastSdk(object):
 
