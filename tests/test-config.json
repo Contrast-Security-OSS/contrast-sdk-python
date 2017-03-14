@@ -3,7 +3,7 @@
   "api_key": "demo",
   "service_key":"demo",
   "teamserver_url": "http://127.0.0.1:19080/Contrast",
-  "org_uuid": "org_id",
-  "app_id": "app_id",
-  "java_library_hash": ""
+  "org_uuid": "de7dd2a9-7643-46fb-b9d8-9c38aeffed7e",
+  "app_id": "982a4e03-694e-4b00-8d33-955ad6950168",
+  "java_library_hash": "485de3a253e23f645037828c07f1d7f1af40763a"
 }
