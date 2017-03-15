@@ -115,6 +115,3 @@ class ContrastSdk(object):
         self.get_organization_library_stats = self._organization.get_organization_library_stats
         self.get_organization_trace_stats = self._organization.get_organization_trace_stats
         self.get_organization_server_settings = self._organization.get_organization_server_settings
-
-
-
