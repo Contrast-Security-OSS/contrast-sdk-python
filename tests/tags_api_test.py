@@ -16,7 +16,7 @@ class TagsApiTest(TestCase):
         cls.app_id = cls.data['app_id']
         cls.library_hash = cls.data['library_hash']
         cls.trace_id = cls.data['trace_id']
-        cls.tag_name = cls.data['tag_name']
+        cls.tag_name = 'test-tag'
 
 
     def get_application_tags_test(self):

@@ -3,10 +3,9 @@
   "api_key": "demo",
   "service_key":"demo",
   "teamserver_url": "http://127.0.0.1:19080/Contrast",
-  "trace_id": "S81R-DU1P-M6W1-CMNP",
-  "library_hash": "fb0f302a91a376fd5cfe23167c419375e8fc9b8f",
-  "tag_name": "'yee-tag"
-  "org_uuid": "org_id",
-  "app_id": "app_id_with_child_modules",
+  "trace_id": "",
+  "org_uuid": "",
+  "app_id": "",
+  "library_hash": "",
   "java_library_hash": ""
 }
