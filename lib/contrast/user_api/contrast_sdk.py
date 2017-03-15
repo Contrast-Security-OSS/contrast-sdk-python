@@ -6,6 +6,7 @@ from scores_api import _ScoresApi
 from history_api import _HistoryApi
 from role_api import _RoleApi
 from profile_api import _ProfileApi
+from agent_api import _AgentApi
 
 
 class ContrastSdk(object):
@@ -42,6 +43,7 @@ class ContrastSdk(object):
         self._configure_history_api()
         self._configure_roles_api()
         self._configure_profile_api()
+        self._configure_agent_api()
 
     def _configure_modules_api(self):
         self._modules = _ModulesApi()
@@ -116,5 +118,12 @@ class ContrastSdk(object):
         self.get_organization_trace_stats = self._organization.get_organization_trace_stats
         self.get_organization_server_settings = self._organization.get_organization_server_settings
 
+    def _configure_agent_api(self):
+        self._agent = _AgentApi()
+        self._configure_api_defaults(self._agent)
+        self.get_agent_profiles = self._agent.get_agent_profiles
+        self.get_agent_profile = self._agent.get_agent_profile
+        self.get_agent_versions = self._agent.get_agent_versions
+        self.download_agent = self._agent.download_agent
 
 

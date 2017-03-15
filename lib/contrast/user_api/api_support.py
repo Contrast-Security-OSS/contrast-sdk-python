@@ -22,3 +22,6 @@ class _ApiSupport(object):
 
     def _delete(self, path, params=None):
         return requests.delete(self.build_url(path), params=params, headers=self._headers)
+
+    def _download(self, path, params=None):
+        return requests.get(self.build_url(path), params=params, headers=self._headers, stream=True)
