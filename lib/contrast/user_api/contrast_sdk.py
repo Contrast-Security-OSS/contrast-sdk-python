@@ -6,6 +6,7 @@ from scores_api import _ScoresApi
 from history_api import _HistoryApi
 from role_api import _RoleApi
 from profile_api import _ProfileApi
+from user_api import _UserApi
 
 
 class ContrastSdk(object):
@@ -42,6 +43,7 @@ class ContrastSdk(object):
         self._configure_history_api()
         self._configure_roles_api()
         self._configure_profile_api()
+        self._configure_user_api()
 
     def _configure_modules_api(self):
         self._modules = _ModulesApi()
@@ -116,5 +118,12 @@ class ContrastSdk(object):
         self.get_organization_trace_stats = self._organization.get_organization_trace_stats
         self.get_organization_server_settings = self._organization.get_organization_server_settings
 
-
-
+    def _configure_user_api(self):
+        self._user = _UserApi()
+        self._configure_api_defaults(self._user)
+        self.get_users = self._user.get_users
+        self.get_custom_alerts = self._user.get_custom_alerts
+        self.get_custom_attack_alerts = self._user.get_custom_attack_alerts
+        self.get_custom_vulnerability_alerts = self._user.get_custom_vulnerability_alerts
+        self.get_user_information = self._user.get_user_information
+        self.get_user_authorization_header = self._user.get_user_authorization_header
