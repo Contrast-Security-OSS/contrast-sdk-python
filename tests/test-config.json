@@ -5,5 +5,9 @@
   "teamserver_url": "http://127.0.0.1:19080/Contrast",
   "org_uuid": "",
   "app_id": "",
+<<<<<<< HEAD
+=======
+  "trace_id": "",
+>>>>>>> c3cdd08dbe8da3186566d0e7d6c7bc17d2542875
   "java_library_hash": ""
 }
