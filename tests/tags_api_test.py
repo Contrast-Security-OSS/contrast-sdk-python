@@ -14,7 +14,7 @@ class TagsApiTest(TestCase):
         cls.org_uuid = cls.data['org_uuid']
         cls.server_id = cls.data['server_id']
         cls.app_id = cls.data['app_id']
-        cls.library_hash = cls.data['library_hash']
+        cls.library_hash = cls.data['java_library_hash']
         cls.trace_id = cls.data['trace_id']
         cls.tag_name = 'test-tag'
 

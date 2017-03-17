@@ -3,9 +3,8 @@
   "api_key": "demo",
   "service_key":"demo",
   "teamserver_url": "http://127.0.0.1:19080/Contrast",
-  "trace_id": "",
   "org_uuid": "",
   "app_id": "",
-  "library_hash": "",
+  "trace_id": "",
   "java_library_hash": ""
 }
