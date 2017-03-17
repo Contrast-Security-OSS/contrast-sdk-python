@@ -13,25 +13,3 @@ class _WebhookApi(_ApiSupport):
     def get_webhook(self, org_uuid, webhook_id, expand=None):
         path = '{org_uuid}/webhooks/{webhook_id}'.format(org_uuid=org_uuid, webhook_id=webhook_id)
         return self._get(path, params={'expand': expand})
-
-    def create_webhook(self, org_uuid, webhook):
-        path = '{org_uuid}/webhooks'.format(org_uuid=org_uuid)
-        return self._post(path, data={"all_applications": webhook.all_applications,
-                                       "applications": webhook.applications,
-                                       "name": webhook.name,
-                                       "properties": webhook.properties,
-                                       "url": webhook.url,
-                                       "type": webhook.type})
-
-    def update_webhook(self, org_uuid, webhook):
-        path = '{org_uuid}/webhooks'.format(org_uuid=org_uuid)
-        return self._put(path, data={"all_applications": webhook.all_applications,
-                                       "applications": webhook.applications,
-                                       "name": webhook.name,
-                                       "properties": webhook.properties,
-                                       "url": webhook.url,
-                                       "type": webhook.type})
-
-    def delete_webhook(self, org_uuid, webhook_id):
-        path = '{org_uuid}/webhooks/{webhook_id}'.format(org_uuid=org_uuid, webhook_id=webhook_id)
-        return self._delete(path)

@@ -121,7 +121,4 @@ class ContrastSdk(object):
         self._webhook = _WebhookApi()
         self._configure_api_defaults(self._webhook)
         self.get_webhooks = self._webhook.get_webhooks
-        self.create_webhook = self._webhook.create_webhook
-        self.update_webhook = self._webhook.update_webhook
         self.get_webhook = self._webhook.get_webhook
-        self.delete_webhook = self._webhook.delete_webhook
