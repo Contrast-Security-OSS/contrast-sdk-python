@@ -1,12 +1,17 @@
 from util import Util
 from organization_api import _OrganizationApi
 from application_api import _ApplicationApi
+from tags_api import _TagsApi
+from alerts_api import _AlertApi
+from events_api import _EventsApi
 from modules_api import _ModulesApi
 from library_api import _LibraryApi
 from scores_api import _ScoresApi
 from history_api import _HistoryApi
 from role_api import _RoleApi
 from profile_api import _ProfileApi
+from user_api import _UserApi
+from trace_api import _TraceApi
 
 
 class ContrastSdk(object):
@@ -37,6 +42,9 @@ class ContrastSdk(object):
 
     def _setup_apis(self):
         self._configure_organization_api()
+        self._configure_tags_api()
+        self._configure_alert_api()
+        self._configure_events_api()
         self._configure_modules_api()
         self._configure_library_api()
         self._configure_scores_api()
@@ -44,6 +52,8 @@ class ContrastSdk(object):
         self._configure_roles_api()
         self._configure_profile_api()
         self._configure_application_api()
+        self._configure_user_api()
+        self._configure_trace_api()
 
     def _configure_application_api(self):
         self._applications = _ApplicationApi()
@@ -91,6 +101,61 @@ class ContrastSdk(object):
         self.get_application_trace_servers = self._applications.get_application_trace_servers
         self.get_application_trace_urls = self._applications.get_application_trace_urls
         self.get_application_trace_visibility = self._applications.get_application_trace_visibility
+
+
+    def _configure_trace_api(self):
+        self._traces = _TraceApi()
+        self._configure_api_defaults(self._traces)
+        self.filter_org_traces = self._traces.filter_org_traces
+        self.get_org_trace = self._traces.get_org_trace
+        self.get_trace_notes = self._traces.get_trace_notes
+        self.create_trace_note = self._traces.create_trace_note
+        self.get_org_trace_ids = self._traces.get_org_trace_ids
+        self.get_org_trace_policy_violations = self._traces.get_org_trace_policy_violations
+        self.get_trace_visibility = self._traces.get_trace_visibility
+        self.get_new_trace_trend = self._traces.get_new_trace_trend
+        self.get_total_trace_trend = self._traces.get_total_trace_trend
+        self.get_trace_time_to_remediate_by_rule = self._traces.get_trace_time_to_remediate_by_rule
+        self.get_trace_time_to_remediate_by_severity = self._traces.get_trace_time_to_remediate_by_severity
+        self.get_trace_time_to_remediate_current = self._traces.get_trace_time_to_remediate_current
+        self.get_trace_time_to_remediate_month_trend = self._traces.get_trace_time_to_remediate_month_trend
+
+    def _configure_alert_api(self):
+        self._alert = _AlertApi()
+        self._configure_api_defaults(self._alert)
+        self.get_alerts = self._alert.get_alerts
+        self.get_alert_data = self._alert.get_alert_data
+
+    def _configure_events_api(self):
+        self._events = _EventsApi()
+        self._configure_api_defaults(self._events)
+        self.get_latest_events = self._events.get_latest_events
+        self.get_latest_application_creation = self._events.get_latest_application_creation
+        self.get_latest_server_creation = self._events.get_latest_server_creation
+        self.get_latest_traces_received = self._events.get_latest_traces_received
+
+    def _configure_tags_api(self):
+        self._tags = _TagsApi()
+        self._configure_api_defaults(self._tags)
+        self.get_application_tags = self._tags.get_application_tags
+        self.get_all_library_tags = self._tags.get_all_library_tags
+        self.get_all_application_tags = self._tags.get_all_application_tags
+        self.get_application_library_tags = self._tags.get_application_library_tags
+        self.get_library_tag_list = self._tags.get_library_tag_list
+        self.get_server_tag_list = self._tags.get_server_tag_list
+        self.get_all_server_tags = self._tags.get_all_server_tags
+        self.get_all_trace_tags = self._tags.get_all_trace_tags
+        self.get_all_trace_tags_for_application = self._tags.get_all_trace_tags_for_application
+        self.get_all_trace_tags_for_servers = self._tags.get_all_trace_tags_for_servers
+        self.get_all_tags_for_trace = self._tags.get_all_tags_for_trace
+        self.tag_application = self._tags.tag_application
+        self.tag_library = self._tags.tag_library
+        self.tag_server = self._tags.tag_server
+        self.tag_trace = self._tags.tag_trace
+        self.delete_tag_from_application = self._tags.delete_tag_from_application
+        self.delete_tag_from_trace = self._tags.delete_tag_from_trace
+        self.delete_tag_from_server = self._tags.delete_tag_from_server
+        self.delete_tag_from_library = self._tags.delete_tag_from_library
 
     def _configure_modules_api(self):
         self._modules = _ModulesApi()
@@ -165,5 +230,12 @@ class ContrastSdk(object):
         self.get_organization_trace_stats = self._organization.get_organization_trace_stats
         self.get_organization_server_settings = self._organization.get_organization_server_settings
 
-
-
+    def _configure_user_api(self):
+        self._user = _UserApi()
+        self._configure_api_defaults(self._user)
+        self.get_users = self._user.get_users
+        self.get_custom_alerts = self._user.get_custom_alerts
+        self.get_custom_attack_alerts = self._user.get_custom_attack_alerts
+        self.get_custom_vulnerability_alerts = self._user.get_custom_vulnerability_alerts
+        self.get_user_information = self._user.get_user_information
+        self.get_user_authorization_header = self._user.get_user_authorization_header
