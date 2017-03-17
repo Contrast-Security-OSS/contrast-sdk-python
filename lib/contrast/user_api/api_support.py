@@ -20,5 +20,5 @@ class _ApiSupport(object):
     def _put(self, path, data=None):
         return requests.put(self.build_url(path), json=data, headers=self._headers)
 
-    def _delete(self, path, params=None):
-        return requests.delete(self.build_url(path), params=params, headers=self._headers)
+    def _delete(self, path, data=None):
+        return requests.delete(self.build_url(path), json=data, headers=self._headers)
