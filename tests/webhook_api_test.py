@@ -15,6 +15,3 @@ class LibraryApiTest(TestCase):
 
     def get_webhooks_test(self):
         self.assertEquals(200, self.sdk.get_webhooks(self.org_uuid).status_code)
-
-
-

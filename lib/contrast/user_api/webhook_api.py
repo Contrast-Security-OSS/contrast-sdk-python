@@ -23,7 +23,7 @@ class _WebhookApi(_ApiSupport):
                                        "url": webhook.url,
                                        "type": webhook.type})
 
-    def update_webhook(self, org_uuid, webhook, expand):
+    def update_webhook(self, org_uuid, webhook):
         path = '{org_uuid}/webhooks'.format(org_uuid=org_uuid)
         return self._put(path, data={"all_applications": webhook.all_applications,
                                        "applications": webhook.applications,
