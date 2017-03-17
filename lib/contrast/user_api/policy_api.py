@@ -6,7 +6,7 @@ class _PolicyApi(_ApiSupport):
     def __init__(self):
         super(_PolicyApi, self).__init__()
 
-    def get_validators_sanitizers(self, org_uuid):
+    def get_validators_and_sanitizers(self, org_uuid):
         path = '{org_uuid}/controls'.format(org_uuid=org_uuid)
         return self._get(path)
 
