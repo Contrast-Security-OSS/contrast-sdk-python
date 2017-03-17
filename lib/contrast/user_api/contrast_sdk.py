@@ -1,5 +1,7 @@
 from util import Util
 from organization_api import _OrganizationApi
+from alerts_api import _AlertApi
+from events_api import _EventsApi
 from modules_api import _ModulesApi
 from library_api import _LibraryApi
 from scores_api import _ScoresApi
@@ -7,6 +9,7 @@ from history_api import _HistoryApi
 from role_api import _RoleApi
 from profile_api import _ProfileApi
 from user_api import _UserApi
+from trace_api import _TraceApi
 
 
 class ContrastSdk(object):
@@ -37,6 +40,8 @@ class ContrastSdk(object):
 
     def _setup_apis(self):
         self._configure_organization_api()
+        self._configure_alert_api()
+        self._configure_events_api()
         self._configure_modules_api()
         self._configure_library_api()
         self._configure_scores_api()
@@ -44,6 +49,38 @@ class ContrastSdk(object):
         self._configure_roles_api()
         self._configure_profile_api()
         self._configure_user_api()
+        self._configure_trace_api()
+
+    def _configure_trace_api(self):
+        self._traces = _TraceApi()
+        self._configure_api_defaults(self._traces)
+        self.filter_org_traces = self._traces.filter_org_traces
+        self.get_org_trace = self._traces.get_org_trace
+        self.get_trace_notes = self._traces.get_trace_notes
+        self.create_trace_note = self._traces.create_trace_note
+        self.get_org_trace_ids = self._traces.get_org_trace_ids
+        self.get_org_trace_policy_violations = self._traces.get_org_trace_policy_violations
+        self.get_trace_visibility = self._traces.get_trace_visibility
+        self.get_new_trace_trend = self._traces.get_new_trace_trend
+        self.get_total_trace_trend = self._traces.get_total_trace_trend
+        self.get_trace_time_to_remediate_by_rule = self._traces.get_trace_time_to_remediate_by_rule
+        self.get_trace_time_to_remediate_by_severity = self._traces.get_trace_time_to_remediate_by_severity
+        self.get_trace_time_to_remediate_current = self._traces.get_trace_time_to_remediate_current
+        self.get_trace_time_to_remediate_month_trend = self._traces.get_trace_time_to_remediate_month_trend
+
+    def _configure_alert_api(self):
+        self._alert = _AlertApi()
+        self._configure_api_defaults(self._alert)
+        self.get_alerts = self._alert.get_alerts
+        self.get_alert_data = self._alert.get_alert_data
+
+    def _configure_events_api(self):
+        self._events = _EventsApi()
+        self._configure_api_defaults(self._events)
+        self.get_latest_events = self._events.get_latest_events
+        self.get_latest_application_creation = self._events.get_latest_application_creation
+        self.get_latest_server_creation = self._events.get_latest_server_creation
+        self.get_latest_traces_received = self._events.get_latest_traces_received
 
     def _configure_modules_api(self):
         self._modules = _ModulesApi()
