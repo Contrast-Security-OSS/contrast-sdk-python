@@ -2,7 +2,7 @@ from unittest import TestCase
 from lib.contrast.user_api.contrast_sdk import ContrastSdk
 import json
 import os.path
-
+from lib.contrast.types.AgentTypes import AgentTypes
 
 class HistoryApiTest(TestCase):
 
@@ -21,6 +21,6 @@ class HistoryApiTest(TestCase):
         self.assertEquals(200, self.sdk.get_agent_versions(self.org_uuid).status_code)
 
     def download_agent_test(self):
-        self.assertEquals(200, self.sdk.download_agent(self.org_uuid, 'java').status_code)
+        self.assertEquals(200, self.sdk.download_agent(self.org_uuid, AgentTypes.JAVA).status_code)
         self.assertTrue(os.path.isfile('contrast.jar'))
         os.remove('contrast.jar')
