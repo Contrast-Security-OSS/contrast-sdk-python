@@ -11,6 +11,7 @@ from history_api import _HistoryApi
 from role_api import _RoleApi
 from profile_api import _ProfileApi
 from agent_api import _AgentApi
+from webhook_api import _WebhookApi
 from user_api import _UserApi
 from trace_api import _TraceApi
 
@@ -226,6 +227,11 @@ class ContrastSdk(object):
         self.get_agent_profile = self._agent.get_agent_profile
         self.get_agent_versions = self._agent.get_agent_versions
         self.download_agent = self._agent.download_agent
+    def _configure_webhook_api(self):
+        self._webhook = _WebhookApi()
+        self._configure_api_defaults(self._webhook)
+        self.get_webhooks = self._webhook.get_webhooks
+        self.get_webhook = self._webhook.get_webhook
 
     def _configure_user_api(self):
         self._user = _UserApi()
