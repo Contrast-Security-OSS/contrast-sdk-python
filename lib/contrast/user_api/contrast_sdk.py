@@ -11,6 +11,7 @@ from scores_api import _ScoresApi
 from history_api import _HistoryApi
 from role_api import _RoleApi
 from profile_api import _ProfileApi
+from policy_api import _PolicyApi
 from agent_api import _AgentApi
 from webhook_api import _WebhookApi
 from user_api import _UserApi
@@ -56,6 +57,7 @@ class ContrastSdk(object):
         self._configure_roles_api()
         self._configure_profile_api()
         self._configure_application_api()
+        self._configure_policy_api()
         self._configure_agent_api()
         self._configure_user_api()
         self._configure_trace_api()
@@ -268,6 +270,14 @@ class ContrastSdk(object):
         self.get_organization_library_stats = self._organization.get_organization_library_stats
         self.get_organization_trace_stats = self._organization.get_organization_trace_stats
         self.get_organization_server_settings = self._organization.get_organization_server_settings
+
+    def _configure_policy_api(self):
+        self._policy = _PolicyApi()
+        self._configure_api_defaults(self._policy)
+        self.get_validators_and_sanitizers = self._policy.get_validators_and_sanitizers
+        self.get_validator_controls = self._policy.get_validator_controls
+        self.get_sanitizer_controls = self._policy.get_sanitizer_controls
+        self.get_control_suggestions = self._policy.get_control_suggestions
 
     def _configure_agent_api(self):
         self._agent = _AgentApi()
