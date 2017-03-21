@@ -10,6 +10,7 @@ from scores_api import _ScoresApi
 from history_api import _HistoryApi
 from role_api import _RoleApi
 from profile_api import _ProfileApi
+from agent_api import _AgentApi
 from webhook_api import _WebhookApi
 from user_api import _UserApi
 from trace_api import _TraceApi
@@ -53,6 +54,7 @@ class ContrastSdk(object):
         self._configure_history_api()
         self._configure_roles_api()
         self._configure_profile_api()
+        self._configure_agent_api()
         self._configure_user_api()
         self._configure_trace_api()
 
@@ -218,6 +220,13 @@ class ContrastSdk(object):
         self.get_organization_trace_stats = self._organization.get_organization_trace_stats
         self.get_organization_server_settings = self._organization.get_organization_server_settings
 
+    def _configure_agent_api(self):
+        self._agent = _AgentApi()
+        self._configure_api_defaults(self._agent)
+        self.get_agent_profiles = self._agent.get_agent_profiles
+        self.get_agent_profile = self._agent.get_agent_profile
+        self.get_agent_versions = self._agent.get_agent_versions
+        self.download_agent = self._agent.download_agent
     def _configure_webhook_api(self):
         self._webhook = _WebhookApi()
         self._configure_api_defaults(self._webhook)
@@ -233,3 +242,4 @@ class ContrastSdk(object):
         self.get_custom_vulnerability_alerts = self._user.get_custom_vulnerability_alerts
         self.get_user_information = self._user.get_user_information
         self.get_user_authorization_header = self._user.get_user_authorization_header
+
