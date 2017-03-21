@@ -10,6 +10,7 @@ from scores_api import _ScoresApi
 from history_api import _HistoryApi
 from role_api import _RoleApi
 from profile_api import _ProfileApi
+from webhook_api import _WebhookApi
 from user_api import _UserApi
 from trace_api import _TraceApi
 
@@ -216,6 +217,12 @@ class ContrastSdk(object):
         self.get_organization_library_stats = self._organization.get_organization_library_stats
         self.get_organization_trace_stats = self._organization.get_organization_trace_stats
         self.get_organization_server_settings = self._organization.get_organization_server_settings
+
+    def _configure_webhook_api(self):
+        self._webhook = _WebhookApi()
+        self._configure_api_defaults(self._webhook)
+        self.get_webhooks = self._webhook.get_webhooks
+        self.get_webhook = self._webhook.get_webhook
 
     def _configure_user_api(self):
         self._user = _UserApi()
