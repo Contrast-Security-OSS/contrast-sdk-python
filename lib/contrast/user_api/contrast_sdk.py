@@ -1,5 +1,6 @@
 from util import Util
 from organization_api import _OrganizationApi
+from application_api import _ApplicationApi
 from server_api import _ServerApi
 from tags_api import _TagsApi
 from alerts_api import _AlertApi
@@ -55,10 +56,58 @@ class ContrastSdk(object):
         self._configure_history_api()
         self._configure_roles_api()
         self._configure_profile_api()
+        self._configure_application_api()
         self._configure_policy_api()
         self._configure_agent_api()
         self._configure_user_api()
         self._configure_trace_api()
+
+    def _configure_application_api(self):
+        self._applications = _ApplicationApi()
+        self._configure_api_defaults(self._applications)
+        self.get_inactive_applications = self._applications.get_inactive_applications
+        self.get_newest_applications = self._applications.get_newest_applications
+        self.get_recent_applications = self._applications.get_recent_applications
+        self.get_application_agent_activity = self._applications.get_application_agent_activity
+        self.get_application_components = self._applications.get_application_components
+        self.get_application_coverage = self._applications.get_application_coverage
+        self.get_application_coverage_past_week = self._applications.get_application_coverage_past_week
+        self.get_application_history = self._applications.get_application_history
+        self.get_application_history_by_interval = self._applications.get_application_history_by_interval
+        self.get_application_libraries = self._applications.get_application_libraries
+        self.filter_application_libraries = self._applications.filter_application_libraries
+        self.get_application_library_subfilters = self._applications.get_application_library_subfilters
+        self.get_application_libraries_stats = self._applications.get_application_libraries_stats
+        self.get_application_status_breakdown = self._applications.get_application_status_breakdown
+        self.get_application_trace_breakdown = self._applications.get_application_trace_breakdown
+        self.get_application_trace_rule_breakdown = self._applications.get_application_trace_rule_breakdown
+        self.get_application_trace_severity_breakdown = self._applications.get_application_trace_severity_breakdown
+        self.get_application_trace_status_breakdown = self._applications.get_application_trace_status_breakdown
+        self.get_application_servers = self._applications.get_application_servers
+        self.get_application_servers_breakdown = self._applications.get_application_servers_breakdown
+        self.get_application_servers_count = self._applications.get_application_servers_count
+        self.get_application_servers_recently_active = self._applications.get_application_servers_recently_active
+        self.get_application_servers_properties = self._applications.get_application_servers_properties
+        self.get_application_servers_settings = self._applications.get_application_servers_settings
+        self.get_application_technologies = self._applications.get_application_technologies
+        self.get_technologies = self._applications.get_technologies
+        self.get_total_allowed_applications = self._applications.get_total_allowed_applications
+        self.filter_applications = self._applications.filter_applications
+        self.get_application_filters = self._applications.get_application_filters
+        self.get_application = self._applications.get_application
+        self.update_application_importance = self._applications.update_application_importance
+        self.get_application_license_details = self._applications.get_application_license_details
+        self.filter_application_traces = self._applications.filter_application_traces
+        self.get_application_vuln_details = self._applications.get_application_vuln_details
+        self.get_application_traces_uuids = self._applications.get_application_traces_uuids
+        self.get_application_traces_with_policy_violations = self._applications.get_application_traces_with_policy_violations
+        self.delete_application_trace = self._applications.delete_application_trace
+        self.delete_application_traces = self._applications.delete_application_traces
+        self.get_application_trace_details = self._applications.get_application_trace_details
+        self.get_application_trace_requirements = self._applications.get_application_trace_requirements
+        self.get_application_trace_servers = self._applications.get_application_trace_servers
+        self.get_application_trace_urls = self._applications.get_application_trace_urls
+        self.get_application_trace_visibility = self._applications.get_application_trace_visibility
 
     def _configure_trace_api(self):
         self._traces = _TraceApi()
