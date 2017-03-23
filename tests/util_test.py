@@ -1,5 +1,6 @@
 from unittest import TestCase
-from lib.contrast.user_api.util import Util
+
+from contrast_security.user_api.util import Util
 
 
 class UtilTest(TestCase):

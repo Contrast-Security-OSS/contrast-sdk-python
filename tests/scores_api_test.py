@@ -1,6 +1,7 @@
-from unittest import TestCase
-from lib.contrast.user_api.contrast_sdk import ContrastSdk
 import json
+from unittest import TestCase
+
+from contrast_security.contrast_sdk import ContrastSdk
 
 
 class ScoresApiTest(TestCase):

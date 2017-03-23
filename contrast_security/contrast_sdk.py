@@ -1,26 +1,26 @@
-from util import Util
-from organization_api import _OrganizationApi
-from application_api import _ApplicationApi
-from server_api import _ServerApi
-from tags_api import _TagsApi
-from alerts_api import _AlertApi
-from events_api import _EventsApi
-from modules_api import _ModulesApi
-from library_api import _LibraryApi
-from scores_api import _ScoresApi
-from history_api import _HistoryApi
-from role_api import _RoleApi
-from profile_api import _ProfileApi
-from policy_api import _PolicyApi
-from agent_api import _AgentApi
-from webhook_api import _WebhookApi
-from user_api import _UserApi
-from trace_api import _TraceApi
+from contrast_security.user_api.util import Util
+from contrast_security.user_api.organization_api import _OrganizationApi
+from contrast_security.user_api.application_api import _ApplicationApi
+from contrast_security.user_api.server_api import _ServerApi
+from contrast_security.user_api.tags_api import _TagsApi
+from contrast_security.user_api.alerts_api import _AlertApi
+from contrast_security.user_api.events_api import _EventsApi
+from contrast_security.user_api.modules_api import _ModulesApi
+from contrast_security.user_api.library_api import _LibraryApi
+from contrast_security.user_api.scores_api import _ScoresApi
+from contrast_security.user_api.history_api import _HistoryApi
+from contrast_security.user_api.role_api import _RoleApi
+from contrast_security.user_api.profile_api import _ProfileApi
+from contrast_security.user_api.policy_api import _PolicyApi
+from contrast_security.user_api.agent_api import _AgentApi
+from contrast_security.user_api.webhook_api import _WebhookApi
+from contrast_security.user_api.user_api import _UserApi
+from contrast_security.user_api.trace_api import _TraceApi
 
 
 class ContrastSdk(object):
 
-    def __init__(self, username, api_key, service_key, teamserver_url='https://app.contrastsecurity.com/Contrast'):
+    def __init__(self, username, api_key, service_key, teamserver_url='https://app.contrastsecurity.com'):
 
         if not Util.validate_url(teamserver_url):
             raise ValueError('Invalid Url')
@@ -34,7 +34,7 @@ class ContrastSdk(object):
 
     def _configure_api_defaults(self, api_class):
         api_class._headers = self._create_headers()
-        api_class._base_url = self._teamserver_url + '/api'
+        api_class._base_url = self._teamserver_url + '/Contrast/api'
 
     def _create_headers(self):
         return {
@@ -61,6 +61,7 @@ class ContrastSdk(object):
         self._configure_agent_api()
         self._configure_user_api()
         self._configure_trace_api()
+        self._configure_webhook_api()
 
     def _configure_application_api(self):
         self._applications = _ApplicationApi()
@@ -205,7 +206,7 @@ class ContrastSdk(object):
         self.get_application_child_modules = self._modules.get_application_child_modules
 
     def _configure_history_api(self):
-        self._history = _HistoryApi
+        self._history = _HistoryApi()
         self._configure_api_defaults(self._history)
         self.get_organization_score_history = self._history.get_organization_score_history
         self.get_organization_score_history_interval = self._history.get_organization_score_history_interval

@@ -1,6 +1,8 @@
 from api_support import _ApiSupport
 import re
 from ..types.AgentTypes import AgentTypes
+
+
 class _AgentApi(_ApiSupport):
 
     def __init__(self):
@@ -18,13 +20,13 @@ class _AgentApi(_ApiSupport):
         path = '{org_uuid}/agents/versions'.format(org_uuid=org_uuid)
         return self._get(path)
 
-    def download_agent(self, org_uuid, platform=AgentTypes.JAVA, file_path='', profile='default', jvm=None):
+    def download_agent(self, org_uuid, platform=AgentTypes.JAVA, profile='default', jvm=None):
         path = '{org_uuid}/agents/{profile}/{platform}'.format(org_uuid=org_uuid, profile=profile, platform=platform)
         response = self._download(path, params={'jvm': jvm})
         contrast_name = re.findall("filename=(\S+)", response.headers['content-disposition'])
-        with open(file_path+contrast_name[0], 'w+') as f:
+        with open(contrast_name[0], 'w+') as f:
             for chunk in response.iter_content(chunk_size=1024):
                 if chunk:
                     f.write(chunk)
-        return response
+            return response
 
