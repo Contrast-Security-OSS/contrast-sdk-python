@@ -3,7 +3,7 @@ from distutils.core import setup
 setup(
   name='contrast_security',
   packages=['contrast_security', 'contrast_security/filters', 'contrast_security/types', 'contrast_security/user_api'],
-  version='0.11',
+  version='0.12',
   description='Module to easily interact with the Contrast api',
   author='Donnie Propst',
   author_email='donald.propst@contrastsecurity.com',
