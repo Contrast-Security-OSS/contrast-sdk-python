@@ -21,10 +21,6 @@ from user_api.trace_api import _TraceApi
 class ContrastSdk(object):
 
     def __init__(self, username, api_key, service_key, teamserver_url='https://app.contrastsecurity.com'):
-
-        if not Util.validate_url(teamserver_url):
-            raise ValueError('Invalid Url')
-
         self._username = username
         self._api_key = api_key
         self._service_key = service_key
