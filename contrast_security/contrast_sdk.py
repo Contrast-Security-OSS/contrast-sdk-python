@@ -34,11 +34,11 @@ class ContrastSdk(object):
 
     def _create_headers(self):
         return {
-                    'Authorization': Util.create_authorization_token(self._username, self._service_key),
-                    'API-Key': self._api_key,
-                    'Content-type': 'application/json',
-                    'Accept': 'application/json'
-                }
+            'Authorization': Util.create_authorization_token(self._username, self._service_key),
+            'API-Key': self._api_key,
+            'Content-type': 'application/json',
+            'Accept': 'application/json'
+        }
 
     def _setup_apis(self):
         self._configure_organization_api()
@@ -122,6 +122,13 @@ class ContrastSdk(object):
         self.get_trace_time_to_remediate_by_severity = self._traces.get_trace_time_to_remediate_by_severity
         self.get_trace_time_to_remediate_current = self._traces.get_trace_time_to_remediate_current
         self.get_trace_time_to_remediate_month_trend = self._traces.get_trace_time_to_remediate_month_trend
+        self.get_trace_card = self._traces.get_trace_card
+        self.get_trace_events_summary = self._traces.get_trace_events_summary
+        self.get_trace_event_details = self._traces.get_trace_event_details
+        self.get_trace_httprequest = self._traces.get_trace_httprequest
+        self.get_trace_httprequest_details = self._traces.get_trace_httprequest_details
+        self.get_trace_recommendation = self._traces.get_trace_recommendation
+        self.get_trace_story = self._traces.get_trace_story
 
     def _configure_alert_api(self):
         self._alert = _AlertApi()
