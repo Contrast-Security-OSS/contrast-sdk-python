@@ -12,6 +12,7 @@ setup(
   keywords=['contrast', 'security'],
   classifiers=[],
   install_requires=[
-    'requests'
+    'requests',
+    'validators'
   ],
 )
