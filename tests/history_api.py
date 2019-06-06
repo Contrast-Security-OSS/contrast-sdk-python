@@ -15,7 +15,7 @@ class HistoryApiTest(TestCase):
         cls.org_uuid = cls.data['org_uuid']
 
     def history_limit_test(self):
-        self.assertEquals(200, self.sdk.get_organization_score_history(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_organization_score_history(self.org_uuid).status_code)
 
     def history_interval_test(self):
-        self.assertEquals(200, self.sdk.get_organization_score_history_interval(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_organization_score_history_interval(self.org_uuid).status_code)

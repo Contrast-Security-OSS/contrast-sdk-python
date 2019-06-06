@@ -1,4 +1,4 @@
-from api_support import _ApiSupport
+from .api_support import _ApiSupport
 from ..filters.library_filter import LibraryFilter
 
 class _LibraryApi(_ApiSupport):

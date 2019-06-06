@@ -9,7 +9,7 @@ class Util:
 
     @staticmethod
     def create_authorization_token(username, service_key):
-        return base64.standard_b64encode(username+':'+service_key)
+        return base64.standard_b64encode("{}:{}".format(username,service_key))
 
     @staticmethod
     def validate_url(url):

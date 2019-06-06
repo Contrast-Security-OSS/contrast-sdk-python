@@ -16,4 +16,4 @@ class WebhookApiTest(TestCase):
         cls.webhook_url = cls.data['org_uuid']
 
     def get_webhooks_test(self):
-        self.assertEquals(200, self.sdk.get_webhooks(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_webhooks(self.org_uuid).status_code)

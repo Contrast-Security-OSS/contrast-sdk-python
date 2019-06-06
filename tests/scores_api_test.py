@@ -15,43 +15,43 @@ class ScoresApiTest(TestCase):
         cls.org_uuid = cls.data['org_uuid']
 
     def get_scores_test(self):
-        self.assertEquals(200, self.sdk.get_overall_scores(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_overall_scores(self.org_uuid).status_code)
 
     def get_score_category_breakdown_test(self):
-        self.assertEquals(200, self.sdk.get_score_category_breakdown(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_category_breakdown(self.org_uuid).status_code)
 
     def get_score_rule_breakdown_test(self):
-        self.assertEquals(200, self.sdk.get_score_rule_breakdown(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_rule_breakdown(self.org_uuid).status_code)
 
     def get_score_server_breakdown_test(self):
-        self.assertEquals(200, self.sdk.get_score_server_breakdown(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_server_breakdown(self.org_uuid).status_code)
 
     def get_score_severity_breakdown_test(self):
-        self.assertEquals(200, self.sdk.get_score_severity_breakdown(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_severity_breakdown(self.org_uuid).status_code)
 
     def get_score_status_breakdown_test(self):
-        self.assertEquals(200, self.sdk.get_score_status_breakdown(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_status_breakdown(self.org_uuid).status_code)
 
     def get_score_trace_rule_breakdown_test(self):
-        self.assertEquals(200, self.sdk.get_score_trace_rule_breakdown(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_trace_rule_breakdown(self.org_uuid).status_code)
 
     def get_score_trace_severity_breakdown_test(self):
-        self.assertEquals(200, self.sdk.get_score_trace_severity_breakdown(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_trace_severity_breakdown(self.org_uuid).status_code)
 
     def get_score_trace_status_breakdown_test(self):
-        self.assertEquals(200, self.sdk.get_score_trace_status_breakdown(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_trace_status_breakdown(self.org_uuid).status_code)
 
     def get_score_platform_test(self):
-        self.assertEquals(200, self.sdk.get_score_platform(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_platform(self.org_uuid).status_code)
 
     def get_score_platform_include_defense_test(self):
-        self.assertEquals(200, self.sdk.get_score_platform_include_defense(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_platform_include_defense(self.org_uuid).status_code)
 
     def get_score_security_test(self):
-        self.assertEquals(200, self.sdk.get_score_security(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_security(self.org_uuid).status_code)
 
     def get_score_security_include_defense_test(self):
-        self.assertEquals(200, self.sdk.get_score_security_include_defense(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_score_security_include_defense(self.org_uuid).status_code)
 
 
 

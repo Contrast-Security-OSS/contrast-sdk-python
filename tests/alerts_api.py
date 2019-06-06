@@ -15,4 +15,4 @@ class AlertApiTest(TestCase):
         cls.org_uuid = cls.data['org_uuid']
 
     def get_alerts_test(self):
-        self.assertEquals(200, self.sdk.get_organization_info(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_organization_info(self.org_uuid).status_code)

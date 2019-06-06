@@ -15,14 +15,14 @@ class EventsApiTest(TestCase):
         cls.org_uuid = cls.data['org_uuid']
 
     def event_latest_test(self):
-        self.assertEquals(200, self.sdk.get_latest_events(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_latest_events(self.org_uuid).status_code)
 
     def event_application_test(self):
-        self.assertEquals(200, self.sdk.get_latest_application_creation(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_latest_application_creation(self.org_uuid).status_code)
 
     def event_server_test(self):
-        self.assertEquals(200, self.sdk.get_latest_server_creation(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_latest_server_creation(self.org_uuid).status_code)
 
     def event_trace_test(self):
-        self.assertEquals(200, self.sdk.get_latest_traces_received(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_latest_traces_received(self.org_uuid).status_code)
 
