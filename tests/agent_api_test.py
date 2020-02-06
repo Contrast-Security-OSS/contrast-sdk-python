@@ -15,7 +15,7 @@ class AgentApiTest(TestCase):
         cls.org_uuid = cls.data['org_uuid']
 
     def get_agent_profiles_test(self):
-        self.assertEquals(200, self.sdk.get_agent_profiles(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_agent_profiles(self.org_uuid).status_code)
 
     def get_agent_versions_test(self):
-        self.assertEquals(200, self.sdk.get_agent_versions(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_agent_versions(self.org_uuid).status_code)

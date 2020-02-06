@@ -1,4 +1,4 @@
-from api_support import _ApiSupport
+from .api_support import _ApiSupport
 from ..filters.trace_filter import TraceFilter
 from ..filters.trace_trend_filter import TraceTrendFilter
 from ..filters.trace_time_to_remediate_filter import TraceTimeToRemediateFilter

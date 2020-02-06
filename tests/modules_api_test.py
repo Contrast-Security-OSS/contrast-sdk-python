@@ -16,7 +16,7 @@ class ModulesApiTest(TestCase):
         cls.master_app_id = cls.data['app_id']
 
     def get_modules_test(self):
-        self.assertEquals(200, self.sdk.get_application_modules(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_application_modules(self.org_uuid).status_code)
 
     def get_child_modules_test(self):
-        self.assertEquals(200, self.sdk.get_application_child_modules(self.org_uuid, self.master_app_id).status_code)
+        self.assertEqual(200, self.sdk.get_application_child_modules(self.org_uuid, self.master_app_id).status_code)

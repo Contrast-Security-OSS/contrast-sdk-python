@@ -15,5 +15,5 @@ class RoleApiTest(TestCase):
         cls.org_uuid = cls.data['org_uuid']
 
     def org_info_test(self):
-        self.assertEquals(200, self.sdk.get_roles().status_code)
+        self.assertEqual(200, self.sdk.get_roles().status_code)
 

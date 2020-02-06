@@ -1,4 +1,4 @@
-from api_support import _ApiSupport
+from .api_support import _ApiSupport
 from ..filters.application_library_filter import ApplicationLibraryFilter
 from ..filters.application_filter import ApplicationFilter
 from ..filters.application_trace_filter import ApplicationTraceFilter

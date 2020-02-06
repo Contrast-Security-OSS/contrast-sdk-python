@@ -15,13 +15,13 @@ class PolicyApiTest(TestCase):
         cls.org_uuid = cls.data['org_uuid']
 
     def get_validators_and_sanitizers_test(self):
-        self.assertEquals(200, self.sdk.get_validators_and_sanitizers(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_validators_and_sanitizers(self.org_uuid).status_code)
 
     def get_validator_controls_test(self):
-        self.assertEquals(200, self.sdk.get_validator_controls(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_validator_controls(self.org_uuid).status_code)
 
     def get_sanitizer_controls_test(self):
-        self.assertEquals(200, self.sdk.get_sanitizer_controls(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_sanitizer_controls(self.org_uuid).status_code)
 
     def get_control_suggestions_test(self):
-        self.assertEquals(200, self.sdk.get_control_suggestions(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_control_suggestions(self.org_uuid).status_code)

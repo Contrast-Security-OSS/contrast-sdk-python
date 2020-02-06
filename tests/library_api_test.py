@@ -16,23 +16,23 @@ class LibraryApiTest(TestCase):
         cls.java_hash = cls.data['java_library_hash']
 
     def get_libraries_test(self):
-        self.assertEquals(200, self.sdk.get_libraries(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_libraries(self.org_uuid).status_code)
 
     def get_java_library_test(self):
-        self.assertEquals(200, self.sdk.get_java_library(self.org_uuid, self.java_hash) .status_code)
+        self.assertEqual(200, self.sdk.get_java_library(self.org_uuid, self.java_hash) .status_code)
 
     def get_library_stats_test(self):
-        self.assertEquals(200, self.sdk.get_library_stats(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_library_stats(self.org_uuid).status_code)
 
     def get_library_filter_subfilters_test(self):
-        self.assertEquals(200, self.sdk.get_library_filter_subfilters(self.org_uuid, 'apps').status_code)
+        self.assertEqual(200, self.sdk.get_library_filter_subfilters(self.org_uuid, 'apps').status_code)
 
     def filter_libraries_test(self):
-        self.assertEquals(200, self.sdk.filter_libraries(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.filter_libraries(self.org_uuid).status_code)
 
     def get_all_library_filters_test(self):
-        self.assertEquals(200, self.sdk.get_all_library_filters('APPLICATION').status_code)
+        self.assertEqual(200, self.sdk.get_all_library_filters('APPLICATION').status_code)
 
     def get_library_policy_test(self):
-        self.assertEquals(200, self.sdk.get_library_policy(self.org_uuid).status_code)
+        self.assertEqual(200, self.sdk.get_library_policy(self.org_uuid).status_code)
 

@@ -1,4 +1,4 @@
-from api_support import _ApiSupport
+from .api_support import _ApiSupport
 import re
 from ..types.AgentTypes import AgentTypes
 
