@@ -1,0 +1,18 @@
+language: python
+python:
+- '3.4'
+- '3.5'
+- '3.6'
+- '3.7'
+- '3.8'
+install:
+- pip install -r requirements.txt
+script:
+- nosetests --exclude=.*
+deploy:
+  provider: pypi
+  user: __token__
+  password:
+    secure: 'gInZlcnNpb24iOiAxfQAABiAyfz1Y0S2bv8QIscTgqK15clVizXed2yWOQhFY7jJFZQ'
+  on:
+    branch: master
