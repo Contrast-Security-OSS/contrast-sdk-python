@@ -11,6 +11,8 @@ script:
 - nosetests --exclude=.*
 deploy:
   provider: pypi
-  user: "__token__"
+  user: __token__
   password:
-    secure: "Your encrypted token"
+    secure: 'gInZlcnNpb24iOiAxfQAABiAyfz1Y0S2bv8QIscTgqK15clVizXed2yWOQhFY7jJFZQ'
+  on:
+    branch: master
