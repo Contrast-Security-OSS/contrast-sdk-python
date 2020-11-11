@@ -16,6 +16,8 @@ from .user_api.agent_api import _AgentApi
 from .user_api.webhook_api import _WebhookApi
 from .user_api.user_api import _UserApi
 from .user_api.trace_api import _TraceApi
+from .user_api.route_coverage import _RouteCoverageApi
+from .user_api.session_metadata_api import _SessionMetadataApi
 
 
 class ContrastSdk(object):
@@ -58,6 +60,7 @@ class ContrastSdk(object):
         self._configure_user_api()
         self._configure_trace_api()
         self._configure_webhook_api()
+        self._configure_route_coverage_api()
 
     def _configure_application_api(self):
         self._applications = _ApplicationApi()
@@ -307,3 +310,13 @@ class ContrastSdk(object):
         self.get_user_information = self._user.get_user_information
         self.get_user_authorization_header = self._user.get_user_authorization_header
 
+    def _configure_route_coverage_api(self):
+        self._route_coverage = _RouteCoverageApi()
+        self._configure_api_defaults(self._route_coverage)
+        self.get_route_status = self._route_coverage.get_route_status
+        self.filter_routes = self._route_coverage.filter_routes
+
+    def _configure_session_metadata_api(self):
+        self._session_metadata = _SessionMetadataApi()
+        self._configure_api_defaults(self._session_metadata)
+        self.filter_app_session_metadata = self._session_metadata.filter_app_session_metadata
