@@ -4,6 +4,15 @@ class TraceFilter(object):
     ExpandNotes = 'notes'
     ExpandRequest = 'request'
     ExpandApplication = 'application'
+    ExpandBugtracker = 'bugtracker'
+    ExpandViolations = 'violations'
+    ExpandSessionMetadata = 'session_metadata'
+
+    VulnerabilityQuickFilter_All = 'all'
+    VulnerabilityQuickFilter_Open = 'open'
+    VulnerabilityQuickFilter_HighConfidence = 'high-confidence'
+    VulnerabilityQuickFilter_Violation = 'violation'
+    VulnerabilityQuickFilter_PendingReview = 'pending-review'
 
     TimestampFirst = 'FIRST'
     TimestampLast = 'LAST'
@@ -22,10 +31,11 @@ class TraceFilter(object):
         self.modules = []
         self.timestamp_filter = ''
         self.expand = []
+        self.quick_filter = None
+        self.metadata_filters = []
         self.limit = 20
         self.offset = 0
         self.sort = '-lastTimeSeen'
-
 
     def get_params_as_json(self):
         return {
@@ -42,6 +52,8 @@ class TraceFilter(object):
             'modules': ','.join(self.modules),
             'timestampFilter': self.timestamp_filter,
             'expand': ','.join(self.expand),
+            'quickFilter': self.quick_filter,
+            'metadataFilters': self.metadata_filters,
             'limit': self.limit,
             'offset': self.offset,
             'sort': self.sort

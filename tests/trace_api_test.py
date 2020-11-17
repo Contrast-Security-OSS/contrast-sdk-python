@@ -2,6 +2,7 @@ import json
 from unittest import TestCase
 
 from contrast_security.contrast_sdk import ContrastSdk
+from contrast_security.filters.trace_filter import TraceFilter
 
 
 class TraceApiTest(TestCase):
@@ -17,6 +18,18 @@ class TraceApiTest(TestCase):
         cls.trace_id = cls.data['trace_id']
 
     def filter_org_traces_test(self):
+        self.assertEqual(200, self.sdk.filter_org_traces(self.org_uuid).status_code)
+
+    def filter_org_traces_full_test(self):
+        """
+        /ng/{orgUuid}/orgtraces/filter?expand=application,bugtracker,violations,session_metadata&quickFilter=OPEN&modules= {appId}&metadataFilters={metadataFilter}
+        """
+        trace_filter = TraceFilter()
+        trace_filter.expand = [TraceFilter.ExpandApplication, TraceFilter.ExpandBugtracker, TraceFilter.ExpandViolations, TraceFilter.ExpandSessionMetadata]
+        trace_filter.quick_filter = TraceFilter.VulnerabilityQuickFilter_Open
+        trace_filter.modules = [self.app_id]
+        trace_filter.metadata_filters = [{'fieldID': 'testFieldID', 'values': ['test_value_1']}]
+
         self.assertEqual(200, self.sdk.filter_org_traces(self.org_uuid).status_code)
 
     def get_org_trace_test(self):
