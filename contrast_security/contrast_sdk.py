@@ -314,6 +314,7 @@ class ContrastSdk(object):
         self._route_coverage = _RouteCoverageApi()
         self._configure_api_defaults(self._route_coverage)
         self.get_route_status = self._route_coverage.get_route_status
+        self.get_app_route_snapshot = self._route_coverage.get_app_route_snapshot
         self.filter_routes = self._route_coverage.filter_routes
 
     def _configure_session_metadata_api(self):
