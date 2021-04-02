@@ -9,7 +9,7 @@ deploy:
   provider: pypi
   user: __token__
   password:
-    secure: OD8SV0Mfdum2IE4eUdSkBJmnXFK7JPRZIuN3/InaUlA8krKnpqcA5IuCMeXnMUbuqzV0p3eBadzcF24AYt+uxqxIKNj9lHOlg5HR2cUzltp3PMfsbinm7iNzgHlnEvmtsijwS+PLGk/Yjy57K3qprZD2hOiQFTG17IwjKjXq/D+2PuPqEuTgLknCrvFrLeQJ9r/d1Z/EZD2dOLxwkIOE27XS30f8HG6q7BtG+rr71n1d8mVh1/yxdNHXQxMQ2wSzYMh+KzXfApbXicd2zA2S4ajQq7aZd0aQmck/UdBv1rvkLXBL7AEDChfYiNC49A7zI5PJIzwin5uDpuAorqUp7S2SfADX2Sb9YCORcqja3EbbvDfoAwAgt6qH7AfsVLKINkNLi6dT8pnY/7kthaPG1CDQXRebLykZ8FIsKa9Vlg+zSk3KjBtjzYG7Rh9dO4qO+p+wKAQljYzqh78T3MefyFUc5u4dBE9RsCRfnkz0+PxnZ2rioRxmL04hzGxpNyBO+5jQyBXi2QKJodToapyHeYx2/wxkEL9KE9V6tCKCRfiKxz8P3QF1hHX9VD9lDM5qL1iXJiN6H+MApb8qf8d36NduKpb4jahxLcKS38rzTql/AlGIPn8KAPruxxmnhoMKkPVsz+Z6ijvWwCa2GE3P6m3ohYTBoXc8+s5p/u1tmrQ=
+    secure: $PYPI_DEPLOY_KEY
   on:
     branch: master
 env:
