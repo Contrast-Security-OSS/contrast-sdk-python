@@ -8,8 +8,7 @@ script:
 deploy:
   provider: pypi
   user: __token__
-  password:
-    secure: $PYPI_DEPLOY_KEY
+  password: $PYPI_DEPLOY_KEY
   on:
     branch: master
 env:
