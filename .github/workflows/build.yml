@@ -15,7 +15,7 @@ jobs:
       with:
         fetch-depth: 0
     - name: Set up Python
-      uses: actions/python-versions@v2
+      uses: actions/setup-python@v2
       with:
 	python-version: '3.8'
     	architecture: 'x64'
