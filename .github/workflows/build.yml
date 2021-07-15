@@ -1,0 +1,25 @@
+name: Build
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/python-versions@v2
+      with:
+	python-version: '3.8'
+    	architecture: 'x64'
+    - name: install
+      run: pip install -r requirements.txt
+    - name: script
+      run: nosetests --exclude=.*
