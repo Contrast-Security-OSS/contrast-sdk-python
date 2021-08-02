@@ -20,9 +20,6 @@ class ScoresApiTest(TestCase):
     def get_score_category_breakdown_test(self):
         self.assertEqual(200, self.sdk.get_score_category_breakdown(self.org_uuid).status_code)
 
-    def get_score_rule_breakdown_test(self):
-        self.assertEqual(200, self.sdk.get_score_rule_breakdown(self.org_uuid).status_code)
-
     def get_score_server_breakdown_test(self):
         self.assertEqual(200, self.sdk.get_score_server_breakdown(self.org_uuid).status_code)
 

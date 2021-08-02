@@ -99,7 +99,6 @@ class ContrastSdk(object):
         self.get_application_license_details = self._applications.get_application_license_details
         self.filter_application_traces = self._applications.filter_application_traces
         self.get_application_vuln_details = self._applications.get_application_vuln_details
-        self.get_application_traces_uuids = self._applications.get_application_traces_uuids
         self.get_application_traces_with_policy_violations = self._applications.get_application_traces_with_policy_violations
         self.delete_application_trace = self._applications.delete_application_trace
         self.delete_application_traces = self._applications.delete_application_traces
@@ -116,12 +115,10 @@ class ContrastSdk(object):
         self.get_org_trace = self._traces.get_org_trace
         self.get_trace_notes = self._traces.get_trace_notes
         self.create_trace_note = self._traces.create_trace_note
-        self.get_org_trace_ids = self._traces.get_org_trace_ids
         self.get_org_trace_policy_violations = self._traces.get_org_trace_policy_violations
         self.get_trace_visibility = self._traces.get_trace_visibility
         self.get_new_trace_trend = self._traces.get_new_trace_trend
         self.get_total_trace_trend = self._traces.get_total_trace_trend
-        self.get_trace_time_to_remediate_by_rule = self._traces.get_trace_time_to_remediate_by_rule
         self.get_trace_time_to_remediate_by_severity = self._traces.get_trace_time_to_remediate_by_severity
         self.get_trace_time_to_remediate_current = self._traces.get_trace_time_to_remediate_current
         self.get_trace_time_to_remediate_month_trend = self._traces.get_trace_time_to_remediate_month_trend
@@ -139,13 +136,6 @@ class ContrastSdk(object):
         self.get_alerts = self._alert.get_alerts
         self.get_alert_data = self._alert.get_alert_data
 
-    def _configure_events_api(self):
-        self._events = _EventsApi()
-        self._configure_api_defaults(self._events)
-        self.get_latest_events = self._events.get_latest_events
-        self.get_latest_application_creation = self._events.get_latest_application_creation
-        self.get_latest_server_creation = self._events.get_latest_server_creation
-        self.get_latest_traces_received = self._events.get_latest_traces_received
 
     def _configure_tags_api(self):
         self._tags = _TagsApi()
@@ -200,7 +190,6 @@ class ContrastSdk(object):
         self.get_server_trace_details = self._server.get_server_trace_details
         self.filter_server_traces = self._server.filter_server_traces
         self.delete_server_traces = self._server.delete_server_traces
-        self.get_server_vulnerability_uuids = self._server.get_server_vulnerability_uuids
         self.get_server_policy_violations = self._server.get_server_policy_violations
         self.delete_server_trace = self._server.delete_server_trace
         self.get_server_trace_vulnerability = self._server.get_server_trace_vulnerability
@@ -227,10 +216,7 @@ class ContrastSdk(object):
         self._configure_api_defaults(self._scores)
         self.get_overall_scores = self._scores.get_overall_scores
         self.get_score_category_breakdown = self._scores.get_score_category_breakdown
-        self.get_score_rule_breakdown = self._scores.get_score_rule_breakdown
         self.get_score_server_breakdown = self._scores.get_score_server_breakdown
-        self.get_score_severity_breakdown = self._scores.get_score_severity_breakdown
-        self.get_score_status_breakdown = self._scores.get_score_status_breakdown
         self.get_score_trace_rule_breakdown = self._scores.get_score_trace_rule_breakdown
         self.get_score_trace_severity_breakdown = self._scores.get_score_trace_severity_breakdown
         self.get_score_trace_status_breakdown = self._scores.get_score_trace_status_breakdown
@@ -285,14 +271,6 @@ class ContrastSdk(object):
         self.get_validator_controls = self._policy.get_validator_controls
         self.get_sanitizer_controls = self._policy.get_sanitizer_controls
         self.get_control_suggestions = self._policy.get_control_suggestions
-
-    def _configure_agent_api(self):
-        self._agent = _AgentApi()
-        self._configure_api_defaults(self._agent)
-        self.get_agent_profiles = self._agent.get_agent_profiles
-        self.get_agent_profile = self._agent.get_agent_profile
-        self.get_agent_versions = self._agent.get_agent_versions
-        self.download_agent = self._agent.download_agent
 
     def _configure_webhook_api(self):
         self._webhook = _WebhookApi()

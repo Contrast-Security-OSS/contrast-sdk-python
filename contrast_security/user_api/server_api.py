@@ -115,7 +115,7 @@ class _ServerApi(_ApiSupport):
 
     def get_server_trace_subfilters(self, org_uuid, server_id, trace_filter_type):
         path = '{org_uuid}/servertraces/{server_id}/filter/{trace_filter_type}/listing'.format(org_uuid=org_uuid, server_id=server_id, trace_filter_type=trace_filter_type)
-        return self._get(path)
+        return self._post(path)
 
     def get_server_trace_details(self, org_uuid, server_id, trace_uuid, expand=None):
         path = '{org_uuid}/servertraces/{server_id}/filter/{trace_uuid}'.format(org_uuid=org_uuid, server_id=server_id, trace_uuid=trace_uuid)
@@ -125,19 +125,13 @@ class _ServerApi(_ApiSupport):
         if server_trace_filter is None:
             server_trace_filter = ServerTraceFilter()
         path = '{org_uuid}/servertraces/{server_id}/filter'.format(org_uuid=org_uuid, server_id=server_id)
-        return self._get(path, params=server_trace_filter.get_params_as_json())
+        return self._post(path, params=server_trace_filter.get_params_as_json())
 
     def delete_server_traces(self, org_uuid, server_id, traces=[]):
         if len(traces) < 1:
             raise BaseException('Trace list cannot be empty')
         path = '{org_uuid}/servertraces/{server_id}'.format(org_uuid=org_uuid, server_id=server_id)
         return self._delete(path, data={'traces': traces})
-
-    def get_server_vulnerability_uuids(self, org_uuid, server_id, server_trace_filter=None):
-        if server_trace_filter is None:
-            server_trace_filter = ServerTraceFilter()
-        path = '{org_uuid}/servertraces/{server_id}/ids'.format(org_uuid=org_uuid, server_id=server_id)
-        return self._get(path, params=server_trace_filter.get_params_as_json())
 
     def get_server_policy_violations(self, org_uuid, server_id):
         path = '{org_uuid}/servertraces/{server_id}/policy/violations'.format(org_uuid=org_uuid, server_id=server_id)

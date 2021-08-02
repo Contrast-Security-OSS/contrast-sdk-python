@@ -118,9 +118,6 @@ class ApplicationApiTest(TestCase):
     def get_application_vuln_details_test(self):
         self.assertEqual(200, self.sdk.get_application_vuln_details(self.org_uuid, self.app_id, self.trace_id).status_code)
 
-    def get_application_traces_uuids_test(self):
-        self.assertEqual(200, self.sdk.get_application_traces_uuids(self.org_uuid, self.app_id).status_code)
-
     def get_application_traces_with_policy_violations_test(self):
         self.assertEqual(200, self.sdk.get_application_traces_with_policy_violations(self.org_uuid, self.app_id).status_code)
 

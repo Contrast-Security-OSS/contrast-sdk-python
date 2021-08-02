@@ -41,9 +41,6 @@ class TraceApiTest(TestCase):
     def create_trace_note_test(self):
         self.assertEqual(200, self.sdk.create_trace_note(self.org_uuid, self.app_id, self.trace_id, 'A note').status_code)
 
-    def get_org_trace_ids_test(self):
-        self.assertEqual(200, self.sdk.get_org_trace_ids(self.org_uuid).status_code)
-
     def get_org_trace_policy_violations_test(self):
         self.assertEqual(200, self.sdk.get_org_trace_policy_violations(self.org_uuid).status_code)
 
@@ -55,9 +52,6 @@ class TraceApiTest(TestCase):
 
     def get_total_trace_trend_test(self):
         self.assertEqual(200, self.sdk.get_total_trace_trend(self.org_uuid).status_code)
-
-    def get_trace_time_to_remediate_by_rule_test(self):
-        self.assertEqual(200, self.sdk.get_trace_time_to_remediate_by_rule(self.org_uuid).status_code)
 
     def get_trace_time_to_remediate_by_severity_test(self):
         self.assertEqual(200, self.sdk.get_trace_time_to_remediate_by_severity(self.org_uuid).status_code)

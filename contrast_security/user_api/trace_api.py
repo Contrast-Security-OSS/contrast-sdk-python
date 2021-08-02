@@ -38,12 +38,6 @@ class _TraceApi(_ApiSupport):
         )
         return self._post(path, data={'note': note})
 
-    def get_org_trace_ids(self, org_uuid, trace_filter=None):
-        if trace_filter is None:
-            trace_filter = TraceFilter()
-        path = '{org_uuid}/orgtraces/ids'.format(org_uuid=org_uuid)
-        return self._get(path, params=trace_filter.get_params_as_json())
-
     def get_org_trace_policy_violations(self, org_uuid):
         path = '{org_uuid}/orgtraces/policy/violations'.format(org_uuid=org_uuid)
         return self._get(path)
@@ -72,12 +66,6 @@ class _TraceApi(_ApiSupport):
             interval=interval
         )
         return self._get(path, params=trace_trend_filter.get_params_as_json())
-
-    def get_trace_time_to_remediate_by_rule(self, org_uuid,trace_time_to_remediate_filter=None):
-        if trace_time_to_remediate_filter is None:
-            trace_time_to_remediate_filter = TraceTimeToRemediateFilter()
-        path = '{org_uuid}/orgtraces/stats/ttr/rule'.format(org_uuid=org_uuid)
-        return self._get(path, params=trace_time_to_remediate_filter.get_params_as_json())
 
     def get_trace_time_to_remediate_by_severity(self, org_uuid, trace_time_to_remediate_filter=None):
         if trace_time_to_remediate_filter is None:

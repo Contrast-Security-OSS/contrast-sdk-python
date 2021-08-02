@@ -14,20 +14,8 @@ class _ScoresApi(_ApiSupport):
         path = '{org_uuid}/scores/breakdown/category'.format(org_uuid=org_uuid)
         return self._get(path)
 
-    def get_score_rule_breakdown(self, org_uuid):
-        path = '{org_uuid}/scores/breakdown/rule'.format(org_uuid=org_uuid)
-        return self._get(path)
-
     def get_score_server_breakdown(self, org_uuid):
         path = '{org_uuid}/scores/breakdown/server'.format(org_uuid=org_uuid)
-        return self._get(path)
-
-    def get_score_severity_breakdown(self, org_uuid):
-        path = '{org_uuid}/scores/breakdown/severity'.format(org_uuid=org_uuid)
-        return self._get(path)
-
-    def get_score_status_breakdown(self, org_uuid):
-        path = '{org_uuid}/scores/breakdown/status'.format(org_uuid=org_uuid)
         return self._get(path)
 
     def get_score_trace_rule_breakdown(self, org_uuid):
