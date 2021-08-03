@@ -52,12 +52,6 @@ class TraceApiTest(TestCase):
 
     def get_total_trace_trend_test(self):
         self.assertEqual(200, self.sdk.get_total_trace_trend(self.org_uuid).status_code)
-
-    def get_trace_time_to_remediate_by_severity_test(self):
-        self.assertEqual(200, self.sdk.get_trace_time_to_remediate_by_severity(self.org_uuid).status_code)
-
-    def get_trace_time_to_remediate_current_test(self):
-        self.assertEqual(200, self.sdk.get_trace_time_to_remediate_current(self.org_uuid).status_code)
-
+        
     def get_trace_time_to_remediate_month_trend_test(self):
         self.assertEqual(200, self.sdk.get_trace_time_to_remediate_month_trend(self.org_uuid).status_code)

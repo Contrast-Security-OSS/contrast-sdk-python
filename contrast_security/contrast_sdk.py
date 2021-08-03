@@ -19,7 +19,6 @@ from .user_api.trace_api import _TraceApi
 from .user_api.route_coverage import _RouteCoverageApi
 from .user_api.session_metadata_api import _SessionMetadataApi
 
-
 class ContrastSdk(object):
 
     def __init__(self, username, api_key, service_key, teamserver_url='https://app.contrastsecurity.com'):
@@ -47,7 +46,6 @@ class ContrastSdk(object):
         self._configure_server_api()
         self._configure_tags_api()
         self._configure_alert_api()
-        self._configure_events_api()
         self._configure_modules_api()
         self._configure_library_api()
         self._configure_scores_api()
@@ -56,11 +54,11 @@ class ContrastSdk(object):
         self._configure_profile_api()
         self._configure_application_api()
         self._configure_policy_api()
-        self._configure_agent_api()
         self._configure_user_api()
         self._configure_trace_api()
         self._configure_webhook_api()
         self._configure_route_coverage_api()
+        self._configure_session_metadata_api()
 
     def _configure_application_api(self):
         self._applications = _ApplicationApi()
@@ -119,8 +117,6 @@ class ContrastSdk(object):
         self.get_trace_visibility = self._traces.get_trace_visibility
         self.get_new_trace_trend = self._traces.get_new_trace_trend
         self.get_total_trace_trend = self._traces.get_total_trace_trend
-        self.get_trace_time_to_remediate_by_severity = self._traces.get_trace_time_to_remediate_by_severity
-        self.get_trace_time_to_remediate_current = self._traces.get_trace_time_to_remediate_current
         self.get_trace_time_to_remediate_month_trend = self._traces.get_trace_time_to_remediate_month_trend
         self.get_trace_card = self._traces.get_trace_card
         self.get_trace_events_summary = self._traces.get_trace_events_summary

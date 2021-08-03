@@ -66,17 +66,7 @@ class _TraceApi(_ApiSupport):
             interval=interval
         )
         return self._get(path, params=trace_trend_filter.get_params_as_json())
-
-    def get_trace_time_to_remediate_by_severity(self, org_uuid, trace_time_to_remediate_filter=None):
-        if trace_time_to_remediate_filter is None:
-            trace_time_to_remediate_filter = TraceTimeToRemediateFilter()
-        path = '{org_uuid}/orgtraces/stats/ttr/severity'.format(org_uuid=org_uuid)
-        return self._get(path, params=trace_time_to_remediate_filter.get_params_as_json())
-
-    def get_trace_time_to_remediate_current(self, org_uuid):
-        path = '{org_uuid}/orgtraces/stats/ttr/severity/current'.format(org_uuid=org_uuid)
-        return self._get(path)
-
+  
     def get_trace_time_to_remediate_month_trend(self, org_uuid):
         path = '{org_uuid}/orgtraces/stats/ttr/severity/trend'.format(org_uuid=org_uuid)
         return self._get(path)
