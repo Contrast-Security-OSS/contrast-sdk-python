@@ -38,12 +38,6 @@ class _TraceApi(_ApiSupport):
         )
         return self._post(path, data={'note': note})
 
-    def get_org_trace_ids(self, org_uuid, trace_filter=None):
-        if trace_filter is None:
-            trace_filter = TraceFilter()
-        path = '{org_uuid}/orgtraces/ids'.format(org_uuid=org_uuid)
-        return self._get(path, params=trace_filter.get_params_as_json())
-
     def get_org_trace_policy_violations(self, org_uuid):
         path = '{org_uuid}/orgtraces/policy/violations'.format(org_uuid=org_uuid)
         return self._get(path)
