@@ -4,7 +4,6 @@ from .user_api.application_api import _ApplicationApi
 from .user_api.server_api import _ServerApi
 from .user_api.tags_api import _TagsApi
 from .user_api.alerts_api import _AlertApi
-from .user_api.events_api import _EventsApi
 from .user_api.modules_api import _ModulesApi
 from .user_api.library_api import _LibraryApi
 from .user_api.scores_api import _ScoresApi
@@ -12,13 +11,11 @@ from .user_api.history_api import _HistoryApi
 from .user_api.role_api import _RoleApi
 from .user_api.profile_api import _ProfileApi
 from .user_api.policy_api import _PolicyApi
-from .user_api.agent_api import _AgentApi
 from .user_api.webhook_api import _WebhookApi
 from .user_api.user_api import _UserApi
 from .user_api.trace_api import _TraceApi
 from .user_api.route_coverage import _RouteCoverageApi
 from .user_api.session_metadata_api import _SessionMetadataApi
-
 
 class ContrastSdk(object):
 
@@ -47,7 +44,6 @@ class ContrastSdk(object):
         self._configure_server_api()
         self._configure_tags_api()
         self._configure_alert_api()
-        self._configure_events_api()
         self._configure_modules_api()
         self._configure_library_api()
         self._configure_scores_api()
@@ -56,11 +52,11 @@ class ContrastSdk(object):
         self._configure_profile_api()
         self._configure_application_api()
         self._configure_policy_api()
-        self._configure_agent_api()
         self._configure_user_api()
         self._configure_trace_api()
         self._configure_webhook_api()
         self._configure_route_coverage_api()
+        self._configure_session_metadata_api()
 
     def _configure_application_api(self):
         self._applications = _ApplicationApi()
@@ -78,10 +74,8 @@ class ContrastSdk(object):
         self.filter_application_libraries = self._applications.filter_application_libraries
         self.get_application_library_subfilters = self._applications.get_application_library_subfilters
         self.get_application_libraries_stats = self._applications.get_application_libraries_stats
-        self.get_application_status_breakdown = self._applications.get_application_status_breakdown
         self.get_application_trace_breakdown = self._applications.get_application_trace_breakdown
         self.get_application_trace_rule_breakdown = self._applications.get_application_trace_rule_breakdown
-        self.get_application_trace_severity_breakdown = self._applications.get_application_trace_severity_breakdown
         self.get_application_trace_status_breakdown = self._applications.get_application_trace_status_breakdown
         self.get_application_servers = self._applications.get_application_servers
         self.get_application_servers_breakdown = self._applications.get_application_servers_breakdown
@@ -99,7 +93,6 @@ class ContrastSdk(object):
         self.get_application_license_details = self._applications.get_application_license_details
         self.filter_application_traces = self._applications.filter_application_traces
         self.get_application_vuln_details = self._applications.get_application_vuln_details
-        self.get_application_traces_uuids = self._applications.get_application_traces_uuids
         self.get_application_traces_with_policy_violations = self._applications.get_application_traces_with_policy_violations
         self.delete_application_trace = self._applications.delete_application_trace
         self.delete_application_traces = self._applications.delete_application_traces
@@ -116,14 +109,10 @@ class ContrastSdk(object):
         self.get_org_trace = self._traces.get_org_trace
         self.get_trace_notes = self._traces.get_trace_notes
         self.create_trace_note = self._traces.create_trace_note
-        self.get_org_trace_ids = self._traces.get_org_trace_ids
         self.get_org_trace_policy_violations = self._traces.get_org_trace_policy_violations
         self.get_trace_visibility = self._traces.get_trace_visibility
         self.get_new_trace_trend = self._traces.get_new_trace_trend
         self.get_total_trace_trend = self._traces.get_total_trace_trend
-        self.get_trace_time_to_remediate_by_rule = self._traces.get_trace_time_to_remediate_by_rule
-        self.get_trace_time_to_remediate_by_severity = self._traces.get_trace_time_to_remediate_by_severity
-        self.get_trace_time_to_remediate_current = self._traces.get_trace_time_to_remediate_current
         self.get_trace_time_to_remediate_month_trend = self._traces.get_trace_time_to_remediate_month_trend
         self.get_trace_card = self._traces.get_trace_card
         self.get_trace_events_summary = self._traces.get_trace_events_summary
@@ -139,13 +128,6 @@ class ContrastSdk(object):
         self.get_alerts = self._alert.get_alerts
         self.get_alert_data = self._alert.get_alert_data
 
-    def _configure_events_api(self):
-        self._events = _EventsApi()
-        self._configure_api_defaults(self._events)
-        self.get_latest_events = self._events.get_latest_events
-        self.get_latest_application_creation = self._events.get_latest_application_creation
-        self.get_latest_server_creation = self._events.get_latest_server_creation
-        self.get_latest_traces_received = self._events.get_latest_traces_received
 
     def _configure_tags_api(self):
         self._tags = _TagsApi()
@@ -200,7 +182,6 @@ class ContrastSdk(object):
         self.get_server_trace_details = self._server.get_server_trace_details
         self.filter_server_traces = self._server.filter_server_traces
         self.delete_server_traces = self._server.delete_server_traces
-        self.get_server_vulnerability_uuids = self._server.get_server_vulnerability_uuids
         self.get_server_policy_violations = self._server.get_server_policy_violations
         self.delete_server_trace = self._server.delete_server_trace
         self.get_server_trace_vulnerability = self._server.get_server_trace_vulnerability
@@ -226,11 +207,7 @@ class ContrastSdk(object):
         self._scores = _ScoresApi()
         self._configure_api_defaults(self._scores)
         self.get_overall_scores = self._scores.get_overall_scores
-        self.get_score_category_breakdown = self._scores.get_score_category_breakdown
-        self.get_score_rule_breakdown = self._scores.get_score_rule_breakdown
         self.get_score_server_breakdown = self._scores.get_score_server_breakdown
-        self.get_score_severity_breakdown = self._scores.get_score_severity_breakdown
-        self.get_score_status_breakdown = self._scores.get_score_status_breakdown
         self.get_score_trace_rule_breakdown = self._scores.get_score_trace_rule_breakdown
         self.get_score_trace_severity_breakdown = self._scores.get_score_trace_severity_breakdown
         self.get_score_trace_status_breakdown = self._scores.get_score_trace_status_breakdown
@@ -285,14 +262,6 @@ class ContrastSdk(object):
         self.get_validator_controls = self._policy.get_validator_controls
         self.get_sanitizer_controls = self._policy.get_sanitizer_controls
         self.get_control_suggestions = self._policy.get_control_suggestions
-
-    def _configure_agent_api(self):
-        self._agent = _AgentApi()
-        self._configure_api_defaults(self._agent)
-        self.get_agent_profiles = self._agent.get_agent_profiles
-        self.get_agent_profile = self._agent.get_agent_profile
-        self.get_agent_versions = self._agent.get_agent_versions
-        self.download_agent = self._agent.download_agent
 
     def _configure_webhook_api(self):
         self._webhook = _WebhookApi()
