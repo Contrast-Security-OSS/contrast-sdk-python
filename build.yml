@@ -1,0 +1,30 @@
+name: Build & Publish
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+          python-version: '3.8'
+    - name: Install and Upgrade pip
+      run: python3 -m pip install --upgrade pip
+    - name: Install requirements
+      run: pip install -r requirements.txt;
+    - name: script
+      run: nosetests --exclude=.*
+    - name: Deploy to PyPI
+      uses: pypa/gh-action-pypi-publish@master
+      with:
+        user: __token__
+        password: ${{ secrets.PYPI_API_KEY }}
