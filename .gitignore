@@ -3,4 +3,8 @@
 *.pyc
 tests/test-config.json
 MANIFEST
+eggs/
+.eggs/
+develop-eggs/
+*.egg-info/
 dist/

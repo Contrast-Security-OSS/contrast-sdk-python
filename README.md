@@ -54,6 +54,8 @@ To run the tests, create a file in the `/tests` directory called *test-config.js
 
 Then run tests with nose:
 
+install nose https://pypi.org/project/nose
+
 ```commandline
     nosetests
 ```
