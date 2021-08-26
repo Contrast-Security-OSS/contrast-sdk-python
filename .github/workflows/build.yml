@@ -25,11 +25,6 @@ jobs:
       run: nosetests --exclude=.*
     - name: build dist
       run: python setup.py bdist
-    - name: Download artifacts
-      uses: actions/download-artifact@v1
-      with:
-        name: dist
-        path: ./dist
     - name: Deploy to PyPI
       uses: pypa/gh-action-pypi-publish@master
       with:
