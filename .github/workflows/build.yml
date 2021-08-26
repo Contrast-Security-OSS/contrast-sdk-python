@@ -23,6 +23,8 @@ jobs:
       run: pip install -r requirements.txt;
     - name: script
       run: nosetests --exclude=.*
+    - name: build dist
+      run: python setup.py bdist
     - name: Download artifacts
       uses: actions/download-artifact@v1
       with:
