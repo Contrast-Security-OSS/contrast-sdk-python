@@ -23,6 +23,11 @@ jobs:
       run: pip install -r requirements.txt;
     - name: script
       run: nosetests --exclude=.*
+    - name: Download artifacts
+      uses: actions/download-artifact@v1
+      with:
+        name: dist
+        path: ./dist
     - name: Deploy to PyPI
       uses: pypa/gh-action-pypi-publish@master
       with:
