@@ -96,7 +96,7 @@ class ServerApiTest(TestCase):
             assert False
         except BaseException:
             assert True
-
+            
     def get_server_policy_violations_test(self):
         self.assertEqual(200, self.sdk.get_server_policy_violations(self.org_uuid, self.server_id).status_code)
 

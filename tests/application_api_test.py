@@ -55,11 +55,17 @@ class ApplicationApiTest(TestCase):
     def get_application_libraries_stats_test(self):
         self.assertEqual(200, self.sdk.get_application_libraries_stats(self.org_uuid, self.app_id).status_code)
 
+    def get_application_status_breakdown_test(self):
+        self.assertEqual(200, self.sdk.get_application_status_breakdown(self.org_uuid, self.app_id).status_code)
+
     def get_application_trace_breakdown_test(self):
         self.assertEqual(200, self.sdk.get_application_trace_breakdown(self.org_uuid, self.app_id).status_code)
 
     def get_application_trace_rule_breakdown_test(self):
         self.assertEqual(200, self.sdk.get_application_trace_rule_breakdown(self.org_uuid, self.app_id).status_code)
+
+    def get_application_trace_severity_breakdown_test(self):
+        self.assertEqual(200, self.sdk.get_application_trace_severity_breakdown(self.org_uuid, self.app_id).status_code)
 
     def get_application_trace_status_breakdown_test(self):
         self.assertEqual(200, self.sdk.get_application_trace_status_breakdown(self.org_uuid, self.app_id).status_code)

@@ -10,6 +10,10 @@ class _ScoresApi(_ApiSupport):
         path = '{org_uuid}/scores'.format(org_uuid=org_uuid)
         return self._get(path)
 
+    def get_score_category_breakdown(self, org_uuid):
+        path = '{org_uuid}/scores/breakdown/category'.format(org_uuid=org_uuid)
+        return self._get(path)
+
     def get_score_server_breakdown(self, org_uuid):
         path = '{org_uuid}/scores/breakdown/server'.format(org_uuid=org_uuid)
         return self._get(path)

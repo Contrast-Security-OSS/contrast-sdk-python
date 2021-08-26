@@ -69,16 +69,6 @@ class _ApplicationApi(_ApiSupport):
         path = '{org_uuid}/applications/{app_id}/libraries/stats'.format(org_uuid=org_uuid, app_id=app_id)
         return self._get(path, params={'includeMerged': include_merged})
 
-    # App Scores
-
-    def get_application_trace_breakdown(self, org_uuid, app_id, include_merged=True):
-        path = '{org_uuid}/applications/{app_id}/breakdown/trace'.format(org_uuid=org_uuid, app_id=app_id)
-        return self._get(path, params={'includeMerged': include_merged})
-
-    def get_application_trace_rule_breakdown(self, org_uuid, app_id, environment='DEVELOPMENT'):
-        path = '{org_uuid}/applications/{app_id}/breakdown/trace/rule'.format(org_uuid=org_uuid, app_id=app_id)
-        return self._get(path, params={'environment': environment})
-
     def get_application_trace_status_breakdown(self, org_uuid, app_id, environment='DEVELOPMENT'):
         path = '{org_uuid}/applications/{app_id}/breakdown/trace/status'.format(org_uuid=org_uuid, app_id=app_id)
         return self._get(path, params={'environment': environment})
@@ -132,7 +122,7 @@ class _ApplicationApi(_ApiSupport):
 
     def get_application_filters(self, org_uuid):
         path = '{org_uuid}/applications/filters/listing'.format(org_uuid=org_uuid)
-        return self._post(path)
+        return self._get(path)
 
     def get_application(self, org_uuid, app_id, expand=None, include_merged=True):
         path = '{org_uuid}/applications/{app_id}'.format(org_uuid=org_uuid, app_id=app_id)
@@ -151,7 +141,7 @@ class _ApplicationApi(_ApiSupport):
         if application_trace_filter is None:
             application_trace_filter = ApplicationTraceFilter()
         path = '{org_uuid}/traces/{app_id}/filter'.format(org_uuid=org_uuid, app_id=app_id)
-        return self._post(path, params=application_trace_filter.get_params_as_json())
+        return self._get(path, params=application_trace_filter.get_params_as_json())
 
     def get_application_vuln_details(self, org_uuid, app_id, trace_uuid, expand=None):
         path = '{org_uuid}/traces/{app_id}/filter/{trace_uuid}'.format(org_uuid=org_uuid, app_id=app_id, trace_uuid=trace_uuid)

@@ -21,7 +21,7 @@ class _ServerApi(_ApiSupport):
         if server_filter is None:
             server_filter = ServerFilter()
         path = '{org_uuid}/servers/filter'.format(org_uuid=org_uuid)
-        return self._post(path, params=server_filter.get_params_as_json())
+        return self._get(path, params=server_filter.get_params_as_json())
 
     def get_server_filters(self, org_uuid):
         path = '{org_uuid}/servers/filters/listing'.format(org_uuid=org_uuid)
@@ -29,7 +29,7 @@ class _ServerApi(_ApiSupport):
 
     def get_server_filter_subfilters(self, org_uuid, filter_type):
         path = '{org_uuid}/servers/filters/{filter_type}/listing'.format(org_uuid=org_uuid, filter_type=filter_type)
-        return self._post(path)
+        return self._get(path)
 
     def get_server_modes(self, org_uuid):
         path = '{org_uuid}/servers/modes'.format(org_uuid=org_uuid)
@@ -115,7 +115,7 @@ class _ServerApi(_ApiSupport):
 
     def get_server_trace_subfilters(self, org_uuid, server_id, trace_filter_type):
         path = '{org_uuid}/servertraces/{server_id}/filter/{trace_filter_type}/listing'.format(org_uuid=org_uuid, server_id=server_id, trace_filter_type=trace_filter_type)
-        return self._get(path)
+        return self._post(path)
 
     def get_server_trace_details(self, org_uuid, server_id, trace_uuid, expand=None):
         path = '{org_uuid}/servertraces/{server_id}/filter/{trace_uuid}'.format(org_uuid=org_uuid, server_id=server_id, trace_uuid=trace_uuid)
@@ -125,7 +125,7 @@ class _ServerApi(_ApiSupport):
         if server_trace_filter is None:
             server_trace_filter = ServerTraceFilter()
         path = '{org_uuid}/servertraces/{server_id}/filter'.format(org_uuid=org_uuid, server_id=server_id)
-        return self._get(path, params=server_trace_filter.get_params_as_json())
+        return self._post(path, params=server_trace_filter.get_params_as_json())
 
     def delete_server_traces(self, org_uuid, server_id, traces=[]):
         if len(traces) < 1:
