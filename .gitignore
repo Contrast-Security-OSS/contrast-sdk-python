@@ -4,3 +4,7 @@
 tests/test-config.json
 MANIFEST
 dist/
+eggs/
+.eggs/
+develop-eggs/
+*.egg-info/
