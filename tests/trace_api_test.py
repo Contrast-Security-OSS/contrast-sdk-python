@@ -55,3 +55,14 @@ class TraceApiTest(TestCase):
 
     def get_trace_time_to_remediate_month_trend_test(self):
         self.assertEqual(200, self.sdk.get_trace_time_to_remediate_month_trend(self.org_uuid).status_code)
+
+    def trace_quick_filter_enum_open_is_correct(self):
+        self.assertEqual('OPEN', TraceFilter.VulnerabilityQuickFilter_Open)
+
+    def trace_quick_filter_enum_high_confidence_is_correct(self):
+        self.assertEqual('HIGH_CONFIDENCE', TraceFilter.VulnerabilityQuickFilter_HighConfidence)
+
+    def filter_org_traces_test(self):
+        trace_filter = TraceFilter()
+        trace_filter.quick_filter = TraceFilter.VulnerabilityQuickFilter_All
+        self.assertEqual(200, self.sdk.filter_org_traces(self.org_uuid, trace_filter).status_code)

@@ -8,11 +8,11 @@ class TraceFilter(object):
     ExpandViolations = 'violations'
     ExpandSessionMetadata = 'session_metadata'
 
-    VulnerabilityQuickFilter_All = 'all'
-    VulnerabilityQuickFilter_Open = 'open'
-    VulnerabilityQuickFilter_HighConfidence = 'high-confidence'
-    VulnerabilityQuickFilter_Violation = 'violation'
-    VulnerabilityQuickFilter_PendingReview = 'pending-review'
+    VulnerabilityQuickFilter_All = 'ALL'
+    VulnerabilityQuickFilter_Open = 'OPEN'
+    VulnerabilityQuickFilter_HighConfidence = 'HIGH_CONFIDENCE'
+    VulnerabilityQuickFilter_Violation = 'VIOLATION'
+    VulnerabilityQuickFilter_PendingReview = 'PENDING_REVIEW'
 
     TimestampFirst = 'FIRST'
     TimestampLast = 'LAST'

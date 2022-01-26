@@ -4,7 +4,7 @@
   "service_key":"demo",
   "teamserver_url": "http://127.0.0.1:19080/Contrast",
   "org_uuid": "de7dd2a9-7643-46fb-b9d8-9c38aeffed7e",
-  "server_id": "48"
+  "server_id": "48",
   "app_id": "de7dd2a9-7643-46fb-b9d8-9c38aeffed7e",
   "trace_id": "ASDF-1234-1234-1243",
   "java_library_hash": "94a9ce681a42d0352b3ad22659f67835e560d107"
