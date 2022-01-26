@@ -2,7 +2,7 @@
   "username":  "contrast_admin",
   "api_key": "demo",
   "service_key":"demo",
-  "teamserver_url": "http://127.0.0.1:19080/Contrast",
+  "teamserver_url": "http://127.0.0.1:19080",
   "org_uuid": "de7dd2a9-7643-46fb-b9d8-9c38aeffed7e",
   "server_id": "48",
   "app_id": "de7dd2a9-7643-46fb-b9d8-9c38aeffed7e",
