@@ -23,8 +23,12 @@ jobs:
       run: pip install -r requirements.txt;
     - name: script
       run: nosetests --exclude=.*
-    - name: package dist
+    - name: package sdist
       run: python setup.py sdist
+    - name: package wheel
+      run: python setup.py bdist_wheel
+    - name: package egg
+      run: python setup.py bdist_egg
     - name: Deploy to PyPI
       uses: pypa/gh-action-pypi-publish@master
       with:
