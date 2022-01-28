@@ -55,3 +55,8 @@ class TraceApiTest(TestCase):
 
     def get_trace_time_to_remediate_month_trend_test(self):
         self.assertEqual(200, self.sdk.get_trace_time_to_remediate_month_trend(self.org_uuid).status_code)
+
+    def filter_org_traces_test(self):
+        trace_filter = TraceFilter()
+        trace_filter.quick_filter = TraceFilter.VulnerabilityQuickFilter_All
+        self.assertEqual(200, self.sdk.filter_org_traces(self.org_uuid, trace_filter).status_code)
