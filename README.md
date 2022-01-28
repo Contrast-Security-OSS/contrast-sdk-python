@@ -63,3 +63,6 @@ You can run nosetests with python3 using:
 ```commandline
     python3 -m "nose" tests/[test file]
 ```
+
+### Notes
+test cases must end with `..._test` in order for nose to recognize it as a test
