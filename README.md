@@ -61,5 +61,5 @@ Then run tests with nose:
 You can run nosetests with python3 using:
 
 ```commandline
-    python3 -m "nose" [test file]
+    python3 -m "nose" tests/[test file]
 ```
