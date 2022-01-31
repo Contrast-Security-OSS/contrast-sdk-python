@@ -24,13 +24,13 @@ class _LibraryApi(_ApiSupport):
 
     def get_library_filter_subfilters(self, org_uuid,filter_type):
         path = '{org_uuid}/libraries/filters/{filter_type}/listing'.format(org_uuid=org_uuid, filter_type=filter_type)
-        return self._post(path)
+        return self._get(path)
 
     def filter_libraries(self, org_uuid, library_filter=None):
         if library_filter is None:
             library_filter = LibraryFilter()
         path = '{org_uuid}/libraries/filter'.format(org_uuid=org_uuid)
-        return self._post(path, params=library_filter.get_params_as_json())
+        return self._get(path, params=library_filter.get_params_as_json())
 
     def get_all_library_filters(self, filter_type):
         return self._get('libraries/filters/listing', params={'filterType': filter_type})
