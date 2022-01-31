@@ -8,3 +8,4 @@ eggs/
 .eggs/
 develop-eggs/
 *.egg-info/
+build/
