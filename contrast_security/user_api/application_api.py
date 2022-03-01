@@ -151,8 +151,11 @@ class _ApplicationApi(_ApiSupport):
     def filter_application_traces(self, org_uuid, app_id, application_trace_filter=None):
         if application_trace_filter is None:
             application_trace_filter = ApplicationTraceFilter()
+            application_trace_filter.app_id = app_id
+
         path = '{org_uuid}/traces/{app_id}/filter'.format(org_uuid=org_uuid, app_id=app_id)
-        return self._post(path, params=application_trace_filter.get_params_as_json())
+        return self._post(path, json=application_trace_filter.get_body_params_as_json(),
+                          params=application_trace_filter.get_query_params_as_json())
 
     def get_application_vuln_details(self, org_uuid, app_id, trace_uuid, expand=None):
         path = '{org_uuid}/traces/{app_id}/filter/{trace_uuid}'.format(org_uuid=org_uuid, app_id=app_id, trace_uuid=trace_uuid)
