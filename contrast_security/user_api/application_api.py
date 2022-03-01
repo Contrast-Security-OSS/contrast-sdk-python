@@ -133,7 +133,7 @@ class _ApplicationApi(_ApiSupport):
 
     def get_application_filters(self, org_uuid):
         path = '{org_uuid}/applications/filters/listing'.format(org_uuid=org_uuid)
-        return self._post(path)
+        return self._get(path)
 
     def get_application(self, org_uuid, app_id, expand=None, include_merged=True):
         path = '{org_uuid}/applications/{app_id}'.format(org_uuid=org_uuid, app_id=app_id)
