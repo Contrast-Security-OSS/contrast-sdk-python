@@ -3,7 +3,7 @@
   "api_key": "demo",
   "service_key":"demo",
   "teamserver_url": "http://127.0.0.1:19080",
-  "org_uuid": "4b7bc7b8-c59d-43ee-8b75-9c5172535f7b",
+  "org_uuid": "de7dd2a9-7643-46fb-b9d8-9c38aeffed7e",
   "server_id": "48",
   "app_id": "de7dd2a9-7643-46fb-b9d8-9c38aeffed7e",
   "trace_id": "ASDF-1234-1234-1243",

@@ -29,14 +29,14 @@ class ApplicationTraceFilter(object):
         self.modules = []
         self.app_tags = []
         self.app_id = None
-        self.quick_filter = "all"
+        self.quick_filter = "ALL"
         self.security_standards = []
-        self.tracked = False
-        self.untracked = False
-        self.timestamp_filter = "LAST"
-        self.match_route_path_params = False
+        self.tracked = True
+        self.untracked = True
+        self.timestamp_filter = None
+        self.match_route_path_params = True
         self.metadata_filters = []
-        self.licensed_only = False
+        self.licensed_only = True
         self.expand = []
         self.limit = 20
         self.offset = 0
@@ -44,32 +44,32 @@ class ApplicationTraceFilter(object):
 
     def get_body_params_as_json(self):
         return {
-            'filterText': self.filter_text,
+            'appVersionTags': self.app_version_tags,
+            'applicationID': self.app_id,
+            'applicationTags': self.app_tags,
             'startDate': self.start_date,
             'endDate': self.end_date,
-            'filterTags': ','.join(self.filter_tags),
-            'severities': ','.join(self.severities),
-            'status': ','.join(self.statuses),
-            'substatus': ','.join(self.substatus),
-            'vulnTypes': ','.join(self.vuln_types),
-            'appVersionTags': ','.join(self.app_version_tags),
-            'servers': ','.join(self.servers),
-            'environments': ','.join(self.environments),
-            'urls': ','.join(self.urls),
-            'sinks': ','.join(self.sinks),
-            'sinkValues': ','.join(self.sinks_values),
-            'routes': ','.join(self.routes),
-            'modules': ','.join(self.modules),
-            'applicationTags': ','.join(self.app_tags),
-            'applicationID': self.app_id,
+            'environments': self.environments,
+            'filterTags': self.filter_tags,
+            'filterText': self.filter_text,
+            'licensedOnly': self.licensed_only,
+            'matchRoutePathParams': self.match_route_path_params,
+            'metadataFilters': self.metadata_filters,
+            'modules': self.modules,
             'quickFilter': self.quick_filter,
-            'securityStandards': ','.join(self.security_standards),
+            'routes': self.routes,
+            'securityStandards': self.security_standards,
+            'servers': self.servers,
+            'severities': self.severities,
+            'sinks': self.sinks,
+            'sinkValues': self.sinks_values,
+            'status': self.statuses,
+            'substatus': self.substatus,
+            'timestampFilter': self.timestamp_filter,
             'tracked': self.tracked,
             'untracked': self.untracked,
-            'timestampFilter': self.timestamp_filter,
-            'matchRoutePathParams': self.match_route_path_params,
-            'metadataFilters': ','.join(self.metadata_filters),
-            'licensedOnly': self.licensed_only
+            'urls': self.urls,
+            'vulnTypes': self.vuln_types,
         }
 
     def get_query_params_as_json(self):

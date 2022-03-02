@@ -17,7 +17,7 @@ class ApplicationFilter(object):
         self.filter_vulnerabilities_severities = []
         self.include_archived = False
         self.include_only_license = False
-        self.quick_filter = "all"
+        self.quick_filter = "ALL"
         self.metadata_filters = []
         self.expand = []
         self.include_merged = False
@@ -29,18 +29,18 @@ class ApplicationFilter(object):
         return {
             'filterText': self.filter_text,
             'filterAppCode': self.filter_appcode,
-            'filterServers': ','.join(self.filter_servers),
-            'filterTechs': ','.join(self.filter_techs),
-            'filterTags': ','.join(self.filter_tags),
-            'filterLanguages': ','.join(self.filter_languages),
-            'filterCompliance': ','.join(self.filter_compliance),
-            'environment': ','.join(self.environment),
-            'appImportances': ','.join(self.app_importances),
-            'filterVulnSeverities': ','.join(self.filter_vulnerabilities_severities),
+            'filterServers': self.filter_servers,
+            'filterTechs': self.filter_techs,
+            'filterTags': self.filter_tags,
+            'filterLanguages': self.filter_languages,
+            'filterCompliance': self.filter_compliance,
+            'environment': self.environment,
+            'appImportances': self.app_importances,
+            'filterVulnSeverities': self.filter_vulnerabilities_severities,
             'includeArchived': self.include_archived,
             'includeOnlyLicensed': self.include_only_license,
             'quickFilter': self.quick_filter,
-            'metadataFilters': ','.join(self.metadata_filters)
+            'metadataFilters': self.metadata_filters
         }
 
     def get_query_params_as_json(self):
