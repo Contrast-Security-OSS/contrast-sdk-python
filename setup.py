@@ -3,7 +3,7 @@ from setuptools import setup
 setup(
   name='contrast-security',
   packages=['contrast_security', 'contrast_security/filters', 'contrast_security/types', 'contrast_security/user_api'],
-  version='0.21',
+  version='0.22',
   description='Module to easily interact with the Contrast api',
   author='Contrast Security',
   author_email='integrations@contrastsecurity.com',
