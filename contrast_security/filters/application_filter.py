@@ -1,3 +1,6 @@
+import contrast_security.filters.filter_utils as utils
+
+
 class ApplicationFilter(object):
     ExpandScores = 'scores'
     ExpandTraceBreakdown = 'trace_breakdown'
@@ -27,7 +30,7 @@ class ApplicationFilter(object):
 
     def get_body_params_as_json(self):
         return {
-            'filterText': self.filter_text,
+            'filterText': utils.parse_single_element_list_to_string(self.filter_text),
             'filterAppCode': self.filter_appcode,
             'filterServers': self.filter_servers,
             'filterTechs': self.filter_techs,

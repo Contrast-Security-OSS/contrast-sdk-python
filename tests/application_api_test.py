@@ -2,6 +2,7 @@ import json
 from unittest import TestCase
 
 from contrast_security.contrast_sdk import ContrastSdk
+from contrast_security.filters.application_filter import ApplicationFilter
 
 
 class ApplicationApiTest(TestCase):
@@ -93,6 +94,12 @@ class ApplicationApiTest(TestCase):
 
     def filter_applications_test(self):
         self.assertEqual(200, self.sdk.filter_applications(self.org_uuid).status_code)
+
+    def filter_applications_with_single_element_list_filter_text_test(self):
+        application_filter = ApplicationFilter()
+        application_filter.filter_text = ['exampleApplication1']
+        response = self.sdk.filter_applications(org_uuid=self.org_uuid, application_filter=application_filter)
+        self.assertEqual(200, response.status_code)
 
     def get_application_filters_test(self):
         self.assertEqual(200, self.sdk.get_application_filters(self.org_uuid) .status_code)
