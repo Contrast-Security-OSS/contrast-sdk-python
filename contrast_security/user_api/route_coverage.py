@@ -33,4 +33,4 @@ class _RouteCoverageApi(_ApiSupport):
         if metadata is None:
             metadata = []
         path = '{org_uuid}/applications/{app_id}/route/filter'.format(org_uuid=org_uuid, app_id=app_id)
-        return self._post(path, data={'metadata': metadata, 'sessionID': sessionID}, params={'expand': expand})
+        return self._post(path, json={'metadata': metadata, 'sessionID': sessionID}, params={'expand': expand})
