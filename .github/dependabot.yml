@@ -8,7 +8,7 @@ updates:
       time: "07:00"
     labels:
       - "dependencies"
-    open-pull-requests-limit: 0
+    open-pull-requests-limit: 5
     reviewers:
       - "Contrast-Security-OSS/team-xyz"
       - "Contrast-Security-OSS/team-helios"
