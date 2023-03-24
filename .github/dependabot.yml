@@ -1,0 +1,15 @@
+version: 2
+updates:
+  - package-ecosystem: "pip"
+    directory: "/"
+    target-branch: main
+    schedule:
+      interval: "daily"
+      time: "07:00"
+    labels:
+      - "dependencies"
+    open-pull-requests-limit: 0
+    reviewers:
+      - "Contrast-Security-OSS/team-xyz"
+      - "Contrast-Security-OSS/team-helios"
+      - "Contrast-Security-OSS/ecosystem-engineering"
