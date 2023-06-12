@@ -10,8 +10,6 @@ updates:
       - "dependencies"
     open-pull-requests-limit: 5
     reviewers:
-      - "Contrast-Security-OSS/team-xyz"
-      - "Contrast-Security-OSS/team-helios"
       - "Contrast-Security-OSS/ecosystem-engineering"
 
   - package-ecosystem: "github-actions"
@@ -24,6 +22,4 @@ updates:
       - "dependencies"
     open-pull-requests-limit: 5
     reviewers:
-      - "Contrast-Security-OSS/team-xyz"
-      - "Contrast-Security-OSS/team-helios"
       - "Contrast-Security-OSS/ecosystem-engineering"
