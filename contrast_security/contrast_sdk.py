@@ -290,3 +290,7 @@ class ContrastSdk(object):
         self._session_metadata = _SessionMetadataApi()
         self._configure_api_defaults(self._session_metadata)
         self.filter_app_session_metadata = self._session_metadata.filter_app_session_metadata
+        self.get_app_agentsessions = self._session_metadata.get_app_agentsessions
+        self.filter_app_session_metadata_filter = self._session_metadata.filter_app_session_metadata_filter
+        self.get_app_session_metadata_latest = self._session_metadata.get_app_session_metadata_latest
+        self.get_app_session_metadata_sessionid = self._session_metadata.get_app_session_metadata_sessionid
