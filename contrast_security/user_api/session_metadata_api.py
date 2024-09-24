@@ -31,5 +31,5 @@ class _SessionMetadataApi(_ApiSupport):
         return self._get(path)
 
     def get_app_session_metadata_sessionid(self, org_uuid, app_id, session_id):
-        path = '{org_uuid}/applications/{app_id}/agent-sessions/{sessionId}'.format(org_uuid=org_uuid, app_id=app_id, session_id=session_id)
+        path = '{org_uuid}/applications/{app_id}/agent-sessions/{session_id}'.format(org_uuid=org_uuid, app_id=app_id, session_id=session_id)
         return self._get(path)
